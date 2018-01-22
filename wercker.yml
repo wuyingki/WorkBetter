@@ -16,7 +16,7 @@ build:
         repository: wcr.io/burningluffy1/MFrontPage
         tag: $TAG
         ports: 8080
-        cmd: "nginx -g daemon off;"
+        cmd: "nginx -g 'daemon off';"
 deploy:
   box:
     id: alpine
