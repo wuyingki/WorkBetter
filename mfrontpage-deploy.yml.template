@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: frontpage
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: frontpage
+    spec:
+      containers:
+      - name: frontpage
+        image: wcr.io/burningluffy1/uactoken:$TAG
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            memory: 4Gi
+        imagePullPolicy: Always
+      imagePullSecrets:
+      - name: wrelease
