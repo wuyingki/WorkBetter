@@ -9,6 +9,7 @@ build:
         mkdir -p /tmp/nginx/client-body
         cp nginx/nginx.conf /etc/nginx/nginx.conf
         cp nginx/default.conf /etc/nginx/conf.d/default.conf
+        rm -rf /usr/share/nginx/html
         cp -r website /usr/share/nginx/html
     - internal/docker-push:
         username: $DOCKER_USER
