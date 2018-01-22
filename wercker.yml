@@ -55,13 +55,13 @@ deploy:
         insecure-skip-tls-verify: true
         command: apply -f ./mfrontpage-service.yml --namespace=$NS
     - kubectl:
-        name: apply service
+        name: apply ingress
         server: $KUBERNETES_MASTER
         token: $KUBERNETES_TOKEN
         insecure-skip-tls-verify: true
         command: apply -f ./ingress.yml --namespace=$NS
     - kubectl:
-        name: get NodePort address
+        name: get ingress address
         server: $KUBERNETES_MASTER
         token: $KUBERNETES_TOKEN
         insecure-skip-tls-verify: true
