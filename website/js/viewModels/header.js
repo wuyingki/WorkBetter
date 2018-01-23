@@ -42,7 +42,7 @@ define(['knockout', 'ojs/ojcore', 'ojs/ojknockout', 'ojs/ojnavigationlist', 'ojs
         // Data for application name
         var appName = {
             "id": "qs",
-            "name": "JET Work Better"
+            "name": "Work Better"
         };
 
         //
