@@ -99,8 +99,8 @@ require(['ojs/ojcore',
                 //     csslink.href = theme;
                 // }
                     var csslink = document.getElementById('css');
-                    // csslink.href = "css/libs/oj/v1.1.2/alta/oj-alta-min.css";
-                    csslink.href = "css/libs/theme/sanfrancisco/web/sanfrancisco.css";
+                    csslink.href = "css/libs/oj/v1.1.2/alta/oj-alta-min.css";
+                    // csslink.href = "css/libs/theme/sanfrancisco/web/sanfrancisco.css";
             }
 
             function MainViewModel() {
