@@ -93,14 +93,14 @@ require(['ojs/ojcore',
             });
 
             function initTheme() {
-                // var theme = sessionStorage.getItem("theme");
-                // if (theme) {
-                //     var csslink = document.getElementById('css');
-                //     csslink.href = theme;
-                // }
+                var theme = sessionStorage.getItem("theme");
+                if (theme) {
                     var csslink = document.getElementById('css');
-                    csslink.href = "css/libs/oj/v1.1.2/alta/oj-alta-min.css";
-                    // csslink.href = "css/libs/theme/sanfrancisco/web/sanfrancisco.css";
+                    csslink.href = theme;
+                }
+                    // var csslink = document.getElementById('css');
+                    // csslink.href = "css/libs/oj/v1.1.2/alta/oj-alta-min.css";
+                    // // csslink.href = "css/libs/theme/sanfrancisco/web/sanfrancisco.css";
             }
 
             function MainViewModel() {

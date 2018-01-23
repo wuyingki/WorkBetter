@@ -125,8 +125,8 @@ define(['knockout', 'ojs/ojcore', 'ojs/ojknockout', 'ojs/ojnavigationlist', 'ojs
 
         self.toggleTheme = function () {
             var altaTheme = "css/libs/oj/v1.1.2/alta/oj-alta-min.css";
-            var projectorTheme = "css/libs/theme/sanfrancisco/web/sanfrancisco.css";
-            // var projectorTheme = "css/samples/demothemes/alta/projector/demo-projector-alta-min.css";
+            // var projectorTheme = "css/libs/theme/sanfrancisco/web/sanfrancisco.css";
+            var projectorTheme = "css/samples/demothemes/alta/projector/demo-projector-alta-min.css";
             var csslink = document.getElementById("css");
             if (altaTheme !== csslink.attributes.href.value)
             {
