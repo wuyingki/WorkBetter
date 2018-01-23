@@ -1043,7 +1043,7 @@ li.peoplephone div div a.people-phone-mobile-icon {
 }
 .demo-oracle-icon:before {
   /* content: url("images/oracle_logo.svg"); */
-  content: url("images/huawei_logo.svg");
+  content: url("images/huawei_logo.png");
   display: inline;
 }
 /* Adds padding between logo and application name */
