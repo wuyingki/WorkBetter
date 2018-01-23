@@ -1,0 +1,20 @@
+{
+	"version": 3,
+	"file": "sanfrancisco-colors.css",
+	"sources": [
+		"../../../src/themes/sanfrancisco/web/sanfrancisco-colors.scss",
+		"../../../src/themes/sanfrancisco/web/_sanfrancisco.web.settings.scss",
+		"../../../src/scss/oj/alta/_oj.alta.variables.scss",
+		"../../../src/scss/oj/utilities/_oj.utilities.urls.scss",
+		"../../../src/scss/oj/utilities/_oj.utilities.math.scss",
+		"../../../src/scss/oj/utilities/_oj.utilities.units.scss",
+		"../../../src/scss/oj/common/_oj.common.variables.scss",
+		"../../../src/scss/oj/utilities/_oj.utilities.modules.scss",
+		"../../../src/scss/oj/utilities/_oj.utilities.theming.vars.scss",
+		"../../../src/themes/altacolors/common/_vars.scss",
+		"../../../src/scss/oj/utilities/_oj.utilities.json.scss",
+		"../../../src/themes/altacolors/common/_contrast.scss"
+	],
+	"names": [],
+	"mappings": "AWgQA,AAAA,0BAA0B,CAAC;EACzB,WAAW,EDzIJ,u/MAAW,GC6InB;;AFhOD,AAAA,aAAa,CAAC;EACZ,WAAW,ECkFJ,km1BAAW,GDjFnB"
+}
