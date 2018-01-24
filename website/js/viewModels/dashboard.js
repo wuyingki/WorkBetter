@@ -47,7 +47,11 @@ define(['knockout', 'ojs/ojcore', 'data/data', 'ojs/ojknockout', 'ojs/ojmasonryl
                 });
 
                 self.getPhoto = function (id) {
-                    if (self.personProfile().empId < 188) {
+                    if (self.personProfile().empId == 100)
+                    {
+                        var src = 'css/images/people/' + id + '_bak.png'
+                    }
+                    else if (self.personProfile().empId < 188) {
                         var src = 'css/images/people/' + id + '.png';
                     } else {
                         src = 'css/images/people/nopic.png';
