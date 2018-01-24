@@ -15,7 +15,7 @@ build:
         username: $DOCKER_USER
         password: $DOCKER_PASSWORD
         repository: wcr.io/burningluffy1/MFrontPage
-        tag: $TAG
+        tag: $WERCKER_COMMIT
         ports: 8080
         cmd: "nginx -g 'daemon off';"
 deploy:
