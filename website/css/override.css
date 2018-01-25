@@ -506,6 +506,7 @@ div#ojAppNav2 ul.oj-navigationlist-element {
     background-color: #81BB5F;
     text-align: center;
 }
+
 #templateList #AveragePerformance {
     background-color: #ffffff;
     text-align: center;
@@ -756,6 +757,15 @@ div#ojAppNav2 ul.oj-navigationlist-element {
     margin-top: 10px;
     border: 5px solid #ffffff;
 }
+
+.dash-photo-square {
+    border-box: 83px;
+    height: 156px;
+    width: 156px;
+    margin-top: 10px;
+    border: 5px solid #767e08;
+}
+
 #MyNotifications .tcrow .theadcount span.approveicon, #MyNotifications .tcrow .tnewhire span.waitingicon, #MyNotifications .tcrow .ttermin span.rejectedicon {
     margin-left: 15px;
 }
