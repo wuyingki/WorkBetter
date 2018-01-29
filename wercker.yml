@@ -28,9 +28,9 @@ functional-test:
     - script: 
       name: test
       code: |
-      result=`wget -q -O - localhost | sed -n -e 's!.*<title>\(.*\)</title>.*!\1!p'`
-      if [$result != "Work Better"]; then
-        exit 1;
+        result=`wget -q -O - localhost | sed -n -e 's!.*<title>\(.*\)</title>.*!\1!p'`
+        if [$result != "Work Better"]; then
+            exit 1;
 deploy:
   box:
     id: alpine
