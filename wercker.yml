@@ -32,6 +32,7 @@ functional-test:
         result=`wget -q -O - localhost | sed -n -e 's!.*<title>\(.*\)</title>.*!\1!p'`
         if [$result != "Work Better"]; then
             exit 1;
+        fi
 deploy:
   box:
     id: alpine
