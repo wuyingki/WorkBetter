@@ -30,9 +30,10 @@ functional-test:
       code: |
         nginx
         result=`wget -q -O - localhost | sed -n -e 's!.*<title>\(.*\)</title>.*!\1!p'`
-        echo $result
-        if [$result != "Work Better"]; then
-            echo ERROR: Failed to sign $jar_file. Please recheck the variables 1>&2
+        if [ "$result" == "Work Better" ]; then
+            echo "Passed"
+        else
+            echo "Failed"
             exit 1;
         fi
 deploy:
