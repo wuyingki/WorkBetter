@@ -16,8 +16,21 @@ build:
         password: $DOCKER_PASSWORD
         repository: wcr.io/burningluffy1/MFrontPage
         tag: $WERCKER_GIT_COMMIT
-        ports: 8080
+        ports: 80
         cmd: "nginx -g 'daemon off';"
+functional-test:
+  box: 
+    id: wcr.io/burningluffy1/MFrontPage
+    username: $DOCKER_USER
+    password: $DOCKER_PASSWORD
+    tag: $WERCKER_GIT_COMMIT
+  steps:
+    - script: 
+      name: test
+      code: |
+      result=`wget -q -O - localhost | sed -n -e 's!.*<title>\(.*\)</title>.*!\1!p'`
+      if [$result != "Work Better"]; then
+        exit 1;
 deploy:
   box:
     id: alpine
