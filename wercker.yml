@@ -28,7 +28,7 @@ functional-test:
     - script: 
       name: test
       code: |
-        nginx -g 'daemon on';
+        nginx
         result=`wget -q -O - localhost | sed -n -e 's!.*<title>\(.*\)</title>.*!\1!p'`
         if [$result != "Work Better"]; then
             exit 1;
