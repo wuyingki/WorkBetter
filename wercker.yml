@@ -30,6 +30,7 @@ functional-test:
       code: |
         nginx
         result=`wget -q -O - localhost | sed -n -e 's!.*<title>\(.*\)</title>.*!\1!p'`
+        echo $result
         if [$result != "Work Better"]; then
             exit 1;
         fi
