@@ -4,9 +4,6 @@ metadata:
   name: $NS
   annotations:
     kubernetes.io/ingress.class: 'traefik'
-    ingress.kubernetes.io/add-base-url: 'true'
-    ingress.kubernetes.io/rewrite-target: /
-    ingress.kubernetes.io/ssl-redirect: "false"
     traefik.frontend.rule.type: PathPrefixStrip
 spec:
   rules:
