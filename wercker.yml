@@ -14,7 +14,7 @@ build:
     - internal/docker-push:
         username: $DOCKER_USER
         password: $DOCKER_PASSWORD
-        repository: wcr.io/burningluffy1/MFrontPage
+        repository: wcr.io/kwanwan/MFrontPage
         tag: $WERCKER_GIT_COMMIT
         ports: 80
         cmd: "nginx -g 'daemon off';"
