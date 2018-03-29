@@ -20,7 +20,7 @@ build:
         cmd: "nginx -g 'daemon off';"
 functional-test:
   box: 
-    id: wcr.io/burningluffy1/MFrontPage
+    id: wcr.io/kwanwan/MFrontPage
     username: $DOCKER_USER
     password: $DOCKER_PASSWORD
     tag: $WERCKER_GIT_COMMIT
