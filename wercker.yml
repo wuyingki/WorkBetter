@@ -85,4 +85,4 @@ deploy:
         server: $KUBERNETES_MASTER
         token: $KUBERNETES_TOKEN
         insecure-skip-tls-verify: true
-        command: get svc nginx-ingress-controller -o jsonpath='{.status.loadBalancer.ingress[*].ip}' --namespace=shared-ingress
+        command: get svc nginx-ingress-controller -o jsonpath='{.status.loadBalancer.ingress[*].ip}' --namespace=$NS
