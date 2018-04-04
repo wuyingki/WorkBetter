@@ -36,52 +36,24 @@ functional-test:
             echo "Failed"
             exit 1;
         fi
-deploy:
-  box:
-    id: alpine
-    cmd: /bin/sh
-  steps:
+        
+#Deploy our container from the Docker Hub to Kubernetes
+deploy-to-cluster:
+    box:
+        id: alpine
+        cmd: /bin/sh
+    steps:
+
     - bash-template
 
+    - script:
+        name: "Visualise Kubernetes config"
+        code: cat kubernetes.yml
+
     - kubectl:
-        name: apply namespace    
+        name: deploy to kubernetes
         server: $KUBERNETES_MASTER
+        #username: $KUBERNETES_USERNAME
         token: $KUBERNETES_TOKEN
         insecure-skip-tls-verify: true
-        command: apply -f ./ns.yml
-    - kubectl:
-        name: delete OCR secret
-        server: $KUBERNETES_MASTER
-        token: $KUBERNETES_TOKEN
-        insecure-skip-tls-verify: true
-        command: delete secret wrelease --namespace=$NS --ignore-not-found=true
-    - kubectl:
-        name: create OCR secret
-        server: $KUBERNETES_MASTER
-        token: $KUBERNETES_TOKEN
-        insecure-skip-tls-verify: true
-        command: create secret docker-registry wrelease --docker-server=wcr.io --docker-username=$DOCKER_USER --docker-password=$DOCKER_PASSWORD --docker-email=${WERCKER_APPLICATION_OWNER_NAME}@mail.com --namespace=$NS
-    - kubectl:
-        name: apply deplyoment
-        server: $KUBERNETES_MASTER
-        token: $KUBERNETES_TOKEN
-        insecure-skip-tls-verify: true
-        command: apply -f ./mfrontpage-deploy.yml --namespace=$NS
-    - kubectl:
-        name: apply service
-        server: $KUBERNETES_MASTER
-        token: $KUBERNETES_TOKEN
-        insecure-skip-tls-verify: true
-        command: apply -f ./mfrontpage-service.yml --namespace=$NS
-    - kubectl:
-        name: apply ingress
-        server: $KUBERNETES_MASTER
-        token: $KUBERNETES_TOKEN
-        insecure-skip-tls-verify: true
-        command: apply -f ./ingress.yml --namespace=$NS
-    - kubectl:
-        name: get ingress address
-        server: $KUBERNETES_MASTER
-        token: $KUBERNETES_TOKEN
-        insecure-skip-tls-verify: true
-        command: get svc nginx-ingress-controller -o jsonpath='{.status.loadBalancer.ingress[*].ip}' --namespace=shared-ingress
+        command: apply -f kubernetes.yml
