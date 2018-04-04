@@ -74,15 +74,3 @@ deploy:
         token: $KUBERNETES_TOKEN
         insecure-skip-tls-verify: true
         command: apply -f ./mfrontpage-service.yml --namespace=$NS
-    - kubectl:
-        name: apply ingress
-        server: $KUBERNETES_MASTER
-        token: $KUBERNETES_TOKEN
-        insecure-skip-tls-verify: true
-        command: apply -f ./ingress.yml --namespace=$NS
-    - kubectl:
-        name: get ingress address
-        server: $KUBERNETES_MASTER
-        token: $KUBERNETES_TOKEN
-        insecure-skip-tls-verify: true
-        command: get svc nginx-ingress-controller -o jsonpath='{.status.loadBalancer.ingress[*].ip}' --namespace=$NS
