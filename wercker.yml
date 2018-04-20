@@ -14,13 +14,13 @@ build:
     - internal/docker-push:
         username: $DOCKER_USER
         password: $DOCKER_PASSWORD
-        repository: wcr.io/kwanwan/WorkBetter
+        repository: wcr.io/kwanwan/workbetter
         tag: $WERCKER_GIT_COMMIT
         ports: 80
         cmd: "nginx -g 'daemon off';"
 functional-test:
   box: 
-    id: wcr.io/kwanwan/WorkBetter
+    id: wcr.io/kwanwan/workbetter
     username: $DOCKER_USER
     password: $DOCKER_PASSWORD
     tag: $WERCKER_GIT_COMMIT
@@ -67,10 +67,10 @@ deploy:
         server: $KUBERNETES_MASTER
         token: $KUBERNETES_TOKEN
         insecure-skip-tls-verify: true
-        command: apply -f ./mfrontpage-deploy.yml --namespace=$NS
+        command: apply -f ./workbetter-deploy.yml --namespace=$NS
     - kubectl:
         name: apply service
         server: $KUBERNETES_MASTER
         token: $KUBERNETES_TOKEN
         insecure-skip-tls-verify: true
-        command: apply -f ./mfrontpage-service.yml --namespace=$NS
+        command: apply -f ./workbetter-service.yml --namespace=$NS
