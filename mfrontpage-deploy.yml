@@ -1,16 +1,16 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: workbetter
+  name: frontpage
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: workbetter
+        app: frontpage
     spec:
       containers:
-      - name: workbetter
+      - name: frontpage
         image: wcr.io/kwanwan/mfrontpage:$WERCKER_GIT_COMMIT
         ports:
         - containerPort: 80
