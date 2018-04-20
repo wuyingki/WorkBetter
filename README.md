@@ -1,6 +1,10 @@
 # CI/CD Demo - Wercker Container Pipeline
 
-This repository contains the code for the WorkBetter application demo. The demo will Dockerize this application using Wercker, configure a CI/CD pipeline, and deploy the application to a Kubernetes cluster running on Oracle Cloud Infrastructure.
+## Demo Introduction
+
+This repository contains the code for the WorkBetter application demo. This demo will walk you through the process of moving an existing application into a containerised CI/CD pipeline and deploying it to a Kubernetes cluster running on Oracle Cloud Indfrastructure.
+
+You will take on the role of a developer, responsible for configuring the automated build and deploy process that involve details about the application itself. To containerise and automate the building and deploying of this application you will make use of Wercker Pipelines, Oracle Container Registry, and Oracle Cloud Infrastrastructure. The Kubernetes infrastructure will be configured and provisioned through Terraform Installer.
 
 On every pipeline execution, the code goes through the following steps:
 
@@ -10,4 +14,25 @@ On every pipeline execution, the code goes through the following steps:
 3. If passed, the image will be pulled from the registy and deployed to the Kubernetes cluster
 
 
-WorkBetter is a complete sample app showcasing the capabilities of JET for building web applications. WorkBetter has been designed for use as a web application in browsers from a mobile phone up to desktop. WorkBetter demonstrates web UI patterns and best practices, including Routing, ojModule, and data resource interactions.
+## Time to Complete
+
+Approximately 20 minutes
+
+
+## What You Need?
+
+- GitHub account
+- Wercker account
+- Oracle Cloud Infrastructure
+- A Kubernetes cluster running on OCI
+- An installation of Brackets with Bracket Git by Martin Zagora extension installed
+- Some familiarity with GitHub
+- Some familiarity with Wercker
+- Some familiarity with Brackets
+
+
+
+### **Step 1**: Obtain an Oracle Cloud Account
+
+
+
