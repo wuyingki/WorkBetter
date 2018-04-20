@@ -14,13 +14,13 @@ build:
     - internal/docker-push:
         username: $DOCKER_USER
         password: $DOCKER_PASSWORD
-        repository: wcr.io/kwanwan/MFrontPage
+        repository: wcr.io/kwanwan/WorkBetter
         tag: $WERCKER_GIT_COMMIT
         ports: 80
         cmd: "nginx -g 'daemon off';"
 functional-test:
   box: 
-    id: wcr.io/kwanwan/MFrontPage
+    id: wcr.io/kwanwan/WorkBetter
     username: $DOCKER_USER
     password: $DOCKER_PASSWORD
     tag: $WERCKER_GIT_COMMIT
