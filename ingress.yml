@@ -11,5 +11,5 @@ spec:
       paths:
       - path: /hr/
         backend:
-          serviceName: workbetter
+          serviceName: frontpage
           servicePort: 80
