@@ -47,6 +47,8 @@ You will use Wercker (Oracle Container Pipeline) as the core CI/CD software life
 
 Work Better is a HR web application written in JET. This web application is designed as a microservice to run in a Docker container and deployed over Kubenetes. It is continuously integrated and developer with Wercker and deployed to a Kubernetes cluster running on OCI.
 
+* Go to the Work Better dashboard
+
 ![](images/1.png)
 
 
@@ -56,12 +58,16 @@ Wercker is the next generation container lifecycle management tool. You can crea
 
 Also explain about the GitHub repository was added to the workflow when the application is created in Wercker.
 
+* Go to the Wercker WorkBeter application
+
 ![](images/2.png)
 
 
 ### **Step 3**: Walkthrough the WorkBetter workflow
 
-A Workflow in Wercker is how the automation of pipelines are managed. You can interconnect multiple pipelines together to forma workflow. A pipeline can trigger by a GitHub push or by the previous pipeline.
+A Workflow in Wercker is how the automation of pipelines are managed. You can interconnect multiple pipelines together to forma workflow. A pipeline can be triggered by a GitHub push or by the previous pipeline.
+
+* Go to the Wercker Workflow page
 
 Explain each pipleine in the workflow:
 
@@ -75,6 +81,58 @@ Explain each pipleine in the workflow:
 
 ### **Step 4**: Demostrate a code change
 
+We want to demonstrate how we can trigger a new build by making a code change. The profile picture for Steven King is presented in a square frame. We can change this to be presented in a circular frame.
 
 ![](images/4.png)
+
+We can change this by changing a line of code we previously commented it out in the **_dashboard.html_** under **_WorkBetter/website/js/views_** in our GitHub repo.
+
+* Go to the GitHub WorkBetter repo
+* Open the **_dashboard.html_** file
+* Locate lines 44 to 47 where the dashboard photo is defined
+
+![](images/5.png)
+
+* All we got to do is swap the comments tags around like so
+
+![](images/6.png)
+
+
+
+### **Step 4**: Working with code
+
+There are a number of ways to work with your code. Most developers will be working with an IDE or some OpenSource editors. Or you could make the change directly in the GitHub online editor. However, I have the Brackets editor installed and synchronised with my GitHub repo. So I will use Brackets to illustrate how I create a new branch for the code change and push it back to the repo to trigger the **build** and **functional-test** pipeline, but without excuting the **deploy** pipeline.
+
+* Open Brackets
+* Create a new branch **v1.1**
+
+![](images/7.png)
+
+* Open the **_dashboard.html_** file
+* Locate lines 44 to 47 where the dashboard photo is defined
+* Swap the comments tags around
+
+![](images/8.png)
+
+* Save the file
+
+
+### **Step 5**: Push change to GitHub
+
+We have now made the code change in the new **v1.1** branch and need to push the changes back to GitHub.
+
+* Click on **Commit** button to commit the changes
+* Enter a commit message
+* Click on **Git Push** button synchronise
+
+![](images/9.png)
+
+
+### **Step 6**: Monitor the pipeline execution
+
+
+
+
+
+
 
