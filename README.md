@@ -43,7 +43,6 @@ You will use Wercker (Oracle Container Pipeline) as the core CI/CD software life
 
 
 
-
 ### **Step 1**: Introduce the Work Better application
 
 Work Better is a HR web application written in JET. This web application is designed as a microservice to run in a Docker container and deployed over Kubenetes. It is continuously integrated and developer with Wercker and deployed to a Kubernetes cluster running on OCI.
@@ -55,11 +54,27 @@ Work Better is a HR web application written in JET. This web application is desi
 
 Wercker is the next generation container lifecycle management tool. You can create Pipelines that enable full build, test and deployment workflows to execute. It supports Docker-native continuous integration and delivery of microservices and functions with a full set of collaboration tools. And Releases are deployed and managed through Kubernetes and built-in Container Registry Service. So that container images are stored and shared across multiple deployments on Oracle Cloud with our private registry. You can also operate Kubernetes deployments to manage and monitor production applications; scale up and scale down your clusters - secure and load balanced.
 
+Also explain about the GitHub repository was added to the workflow when the application is created in Wercker.
+
 ![](images/2.png)
 
 
 ### **Step 3**: Walkthrough the WorkBetter workflow
 
+A Workflow in Wercker is how the automation of pipelines are managed. You can interconnect multiple pipelines together to forma workflow. A pipeline can trigger by a GitHub push or by the previous pipeline.
+
+Explain each pipleine in the workflow:
+
+* The **build** pipeline is created by default and it is triggered whenever a commit is made to the GitHub repo or by a GitHub push.
+* The **functional-test** pipeline is triggered by a successful build.
+* The **deploy** pipeline is triggered by a successful functional test with a condition for changed made to the **_master_** branch only. This enables the testing of code in a new branch before being merged into the master for release.
 
 
 ![](images/3.png)
+
+
+### **Step 4**: Demostrate a code change
+
+
+![](images/4.png)
+
