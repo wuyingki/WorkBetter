@@ -48,14 +48,18 @@ You will use Wercker (Oracle Container Pipeline) as the core CI/CD software life
 
 Work Better is a HR web application written in JET. This web application is designed as a microservice to run in a Docker container and deployed over Kubenetes. It is continuously integrated and developer with Wercker and deployed to a Kubernetes cluster running on OCI.
 
-![](images/0.2.png)
+![](images/1.png)
 
 
 ### **Step 2**: Introduce Wercker (Oracle Container Pipeline)
 
 Wercker is the next generation container lifecycle management tool. You can create Pipelines that enable full build, test and deployment workflows to execute. It supports Docker-native continuous integration and delivery of microservices and functions with a full set of collaboration tools. And Releases are deployed and managed through Kubernetes and built-in Container Registry Service. So that container images are stored and shared across multiple deployments on Oracle Cloud with our private registry. You can also operate Kubernetes deployments to manage and monitor production applications; scale up and scale down your clusters - secure and load balanced.
 
-![](images/0.3.png)
+![](images/2.png)
+
+
+### **Step 3**: Walkthrough the WorkBetter workflow
 
 
 
+![](images/3.png)
