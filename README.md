@@ -38,6 +38,7 @@ The reason why you want to adopt a container native approach has partially been 
 - Some familiarity with Brackets
 
 
+![](images/0.1.png)
 
 ### **Step 1**: Obtain an Oracle Cloud Account
 
