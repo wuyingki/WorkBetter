@@ -56,9 +56,9 @@ Work Better is a HR web application written in JET. This web application is desi
 
 Wercker is the next generation container lifecycle management tool. You can create Pipelines that enable full build, test and deployment workflows to execute. It supports Docker-native continuous integration and delivery of microservices and functions with a full set of collaboration tools. And Releases are deployed and managed through Kubernetes and built-in Container Registry Service. So that container images are stored and shared across multiple deployments on Oracle Cloud with our private registry. You can also operate Kubernetes deployments to manage and monitor production applications; scale up and scale down your clusters - secure and load balanced.
 
-Also explain about the GitHub repository was added to the workflow when the application is created in Wercker.
+Also explain about the GitHub repository was added to the workflow when the application is created and configured in Wercker.
 
-* Go to the Wercker WorkBeter application
+* Go to the Wercker WorkBetter application
 * Describes the navigation tab along the top
 * Click on the **Runs** tab
 
@@ -67,7 +67,7 @@ Also explain about the GitHub repository was added to the workflow when the appl
 
 ### **Step 3**: Walkthrough the WorkBetter workflow
 
-A Workflow in Wercker is how the automation of pipelines are managed. You can interconnect multiple pipelines together to forma workflow. A pipeline can be triggered by a GitHub push or by the previous pipeline.
+A Workflow in Wercker is how the automation of pipelines are managed. You can interconnect multiple pipelines together to form a workflow. A pipeline can be triggered by a GitHub push or by the previous pipeline.
 
 * Click on the **Workflow** tab
 
@@ -92,8 +92,20 @@ You can define your application environment variables externally under the **Env
 ![](images/3.1.png)
 
 
+### **Step 5**: Walkthrough the Kubernetes dashboard
 
-### **Step 5**: Demostrate a code change
+You can monitor and manage your Kurbernetes cluster through its dashboard. Not everything can be managed from this console as the Kubernetes cluster is provisioned on Oracle Cloud Infrastructure. For more details please open the OCI console where you will find the master, worker, etcd and load balancer nodes.
+
+* Open the Kubernetes dashboard
+* Select **_Namespace_** and corralate it with the NS environment variable
+* Select **_Overview_** show all
+* Select **_Service_**
+* Highlight the **_External endpoints_**, this is the IP address to access the WorkBeter application
+
+![](images/3.2.png)
+
+
+### **Step 6**: Demostrate a code change
 
 We want to demonstrate how we can trigger a new build by making a code change. The profile picture for Steven King is presented in a square frame. We can change this to be presented in a circular frame.
 
@@ -113,7 +125,7 @@ We can change this by changing a line of code we previously commented it out in 
 
 
 
-### **Step 6**: Working with code
+### **Step 7**: Working with code
 
 There are a number of ways to work with your code. Most developers will be working with an IDE or some OpenSource editors. Or you could make the change directly in the GitHub online editor. However, I have the Brackets editor installed and synchronised with my GitHub repo. So I will use Brackets to illustrate how I create a new branch for the code change and push it back to the repo to trigger the **build** and **functional-test** pipeline, but without excuting the **deploy** pipeline.
 
@@ -131,7 +143,7 @@ There are a number of ways to work with your code. Most developers will be worki
 
 
 
-### **Step 7**: Push change to GitHub
+### **Step 8**: Push change to GitHub
 
 We have now made the code change in the new **v1.1** branch and need to push the changes back to GitHub.
 
@@ -142,7 +154,7 @@ We have now made the code change in the new **v1.1** branch and need to push the
 ![](images/9.png)
 
 
-### **Step 8**: Monitor the pipeline execution
+### **Step 9**: Monitor the pipeline execution
 
 The moment we commit the Git push, the **build** pipeline would be triggered in Wercker. Please take note of the pipelines to be executed. The **build** and **functional-test** should be the only pipelines to be executed as the **deploy** pipeline is executed only on changes to the **_master_** branch. Since we have made the changes in a new branch, we can therefore test it without deploying it to production.
 
@@ -154,7 +166,7 @@ The moment we commit the Git push, the **build** pipeline would be triggered in 
 ![](images/10.png)
 
 
-### **Step 9**: Merge branch and deploy changes to environment
+### **Step 10**: Merge branch and deploy changes to environment
 
 If the previous pipelines completed sucessfully then we can commit the changes into the master branch by merging the **_v1.1_** to the **_master_**. This will automatically trigger a deployment by calling the **deploy** pipeline. Instead of using Brackets to merge the branches, lets use the GitHub editor instead as you can see the steps better visually.
 
@@ -165,7 +177,7 @@ If the previous pipelines completed sucessfully then we can commit the changes i
 ![](images/14.png)
 
 
-### **Step 10**: Monitor the pipeline execution
+### **Step 11**: Monitor the pipeline execution
 
 Once we commit the merging of the **_master_** and **_v1.1_**, the workflow will be triggered. Please take note of the pipelines to be executed. This time we will execute the **deploy** pipeline as changes have been merged with the **_master_** branch.
 
@@ -177,7 +189,7 @@ Once we commit the merging of the **_master_** and **_v1.1_**, the workflow will
 ![](images/16.png)
 
 
-### **Step 11**: Reload the WorkBetter application
+### **Step 12**: Reload the WorkBetter application
 
 You can now see the changes by reloading your browser page. The key message is how agile it is to continuously integrate and deploy new features to the end users. And we shown the support of CI/CD with Wercker (Oracle Container Pipeline). With Wercker, the deployment can be to any Kurbenetes cluster but it will be even better with Oracle Kubernetes Engine which is a managed Kubernetes environment.
 
