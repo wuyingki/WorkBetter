@@ -148,7 +148,7 @@ Using the GitHub online editor is straight forward, however, this is not the pre
 
 #### **Step 7.2**: Changing the code in Brackets
 
-Since I have the Brackets editor installed and synchronised with my GitHub repo. So I will use Brackets to illustrate how I create a new branch for the code change and push it back to the repo to trigger the **build** and **functional-test** pipeline, but without excuting the **deploy** pipeline.
+As I have the Brackets editor installed and synchronised with my GitHub repo, I can use Brackets to illustrate how I create a new branch for the code change and push it back to the repo to trigger the **build** and **functional-test** pipeline, but without excuting the **deploy** pipeline.
 
 * Open Brackets
 * Create a new branch **v1.1**
