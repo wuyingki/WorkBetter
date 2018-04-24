@@ -47,6 +47,7 @@ You will use Wercker (Oracle Container Pipeline) as the core CI/CD software life
 Work Better is a HR web application written in JET. This web application is designed as a microservice to run in a Docker container and deployed over Kubenetes. It is continuously integrated and developer with Wercker and deployed to a Kubernetes cluster running on OCI.
 
 * Go to the Work Better dashboard
+* Click on some of the items
 
 ![](images/1.png)
 
@@ -146,7 +147,7 @@ We have now made the code change in the new **v1.1** branch and need to push the
 The moment we commit the Git push, the **build** pipeline would be triggered in Wercker. Please take note of the pipelines to be executed. The **build** and **functional-test** should be the only pipelines to be executed as the **deploy** pipeline is executed only on changes to the **_master_** branch. Since we have made the changes in a new branch, we can therefore test it without deploying it to production.
 
 * Switch back to Wercker
-* Select the **Run** tab
+* Click on the **Runs** tab
 * Observe the workflow
 * Click into the pipelines and expand the steps for more detail
 
@@ -169,13 +170,23 @@ If the previous pipelines completed sucessfully then we can commit the changes i
 Once we commit the merging of the **_master_** and **_v1.1_**, the workflow will be triggered. Please take note of the pipelines to be executed. This time we will execute the **deploy** pipeline as changes have been merged with the **_master_** branch.
 
 * Switch back to Wercker
-* Select the **Run** tab
+* Click on the **Runs** tab
 * Observe the workflow
 * Click into the pipelines and expand the deploy for more detail
 
 ![](images/16.png)
 
 
-### **Step 12**:
+### **Step 12**: Reload the WorkBetter application
+
+You can now see the changes by reloading your browser page. The key message is how agile it is to continuously integrate and deploy new features to the end users. And we shown the support of CI/CD with Wercker (Oracle Container Pipeline). With Wercker, the deployment can be to any Kurbenetes cluster but it will be even better with Oracle Kubernetes Engine which is a managed Kubernetes environment.
+
+* Reload WorkBetter dashboard in your browser
+* Observse the profile photo changed to a circular frame
+
+![](images/17.png)
+
+
+## End
 
 
