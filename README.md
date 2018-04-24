@@ -127,7 +127,21 @@ We can change this by changing a line of code we previously commented it out in 
 
 ### **Step 7**: Working with code
 
-There are a number of ways to work with your code. Most developers will be working with an IDE or some OpenSource editors. Or you could make the change directly in the GitHub online editor. However, I have the Brackets editor installed and synchronised with my GitHub repo. So I will use Brackets to illustrate how I create a new branch for the code change and push it back to the repo to trigger the **build** and **functional-test** pipeline, but without excuting the **deploy** pipeline.
+There are a number of ways to work with your code. Most developers will be working with an IDE or some OpenSource editors. Or you could make the change directly in the GitHub online editor.
+
+
+### **Step 7.1**: Changing the code in GitHub online editor
+
+Using the GitHub online editor is straight forward, however, this is not the preferred way of developing an application.
+
+![](images/7.1.png)
+
+If you've made code changes in the GitHub online editor, then you can go straight to Step 8.
+
+
+### **Step 7.2**: Changing the code in Brackets
+
+Since I have the Brackets editor installed and synchronised with my GitHub repo. So I will use Brackets to illustrate how I create a new branch for the code change and push it back to the repo to trigger the **build** and **functional-test** pipeline, but without excuting the **deploy** pipeline.
 
 * Open Brackets
 * Create a new branch **v1.1**
