@@ -131,7 +131,7 @@ There are a number of ways to work with your code. Most developers will be worki
 
 
 
-### **Step 8**: Push change to GitHub
+### **Step 7**: Push change to GitHub
 
 We have now made the code change in the new **v1.1** branch and need to push the changes back to GitHub.
 
@@ -142,7 +142,7 @@ We have now made the code change in the new **v1.1** branch and need to push the
 ![](images/9.png)
 
 
-### **Step 9**: Monitor the pipeline execution
+### **Step 8**: Monitor the pipeline execution
 
 The moment we commit the Git push, the **build** pipeline would be triggered in Wercker. Please take note of the pipelines to be executed. The **build** and **functional-test** should be the only pipelines to be executed as the **deploy** pipeline is executed only on changes to the **_master_** branch. Since we have made the changes in a new branch, we can therefore test it without deploying it to production.
 
@@ -154,7 +154,7 @@ The moment we commit the Git push, the **build** pipeline would be triggered in 
 ![](images/10.png)
 
 
-### **Step 10**: Merge branch and deploy changes to environment
+### **Step 9**: Merge branch and deploy changes to environment
 
 If the previous pipelines completed sucessfully then we can commit the changes into the master branch by merging the **_v1.1_** to the **_master_**. This will automatically trigger a deployment by calling the **deploy** pipeline. Instead of using Brackets to merge the branches, lets use the GitHub editor instead as you can see the steps better visually.
 
@@ -165,7 +165,7 @@ If the previous pipelines completed sucessfully then we can commit the changes i
 ![](images/14.png)
 
 
-### **Step 11**: Monitor the pipeline execution
+### **Step 10**: Monitor the pipeline execution
 
 Once we commit the merging of the **_master_** and **_v1.1_**, the workflow will be triggered. Please take note of the pipelines to be executed. This time we will execute the **deploy** pipeline as changes have been merged with the **_master_** branch.
 
@@ -177,7 +177,7 @@ Once we commit the merging of the **_master_** and **_v1.1_**, the workflow will
 ![](images/16.png)
 
 
-### **Step 12**: Reload the WorkBetter application
+### **Step 11**: Reload the WorkBetter application
 
 You can now see the changes by reloading your browser page. The key message is how agile it is to continuously integrate and deploy new features to the end users. And we shown the support of CI/CD with Wercker (Oracle Container Pipeline). With Wercker, the deployment can be to any Kurbenetes cluster but it will be even better with Oracle Kubernetes Engine which is a managed Kubernetes environment.
 
