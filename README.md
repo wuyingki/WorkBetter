@@ -42,7 +42,6 @@ You will use Wercker (Oracle Container Pipeline) as the core CI/CD software life
 - Some familiarity with Brackets
 
 
-
 ### **Step 1**: Introduce the Work Better application
 
 Work Better is a HR web application written in JET. This web application is designed as a microservice to run in a Docker container and deployed over Kubenetes. It is continuously integrated and developer with Wercker and deployed to a Kubernetes cluster running on OCI.
@@ -73,9 +72,9 @@ A Workflow in Wercker is how the automation of pipelines are managed. You can in
 
 * Explain each pipleine in the workflow:
 
-** The **build** pipeline is created by default and it is triggered whenever a commit is made to the GitHub repo or by a GitHub push.
-** The **functional-test** pipeline is triggered by a successful build.
-** The **deploy** pipeline is triggered by a successful functional test with a condition for changed made to the **_master_** branch only. This enables the testing of code in a new branch before being merged into the master for release.
+  * The **build** pipeline is created by default and it is triggered whenever a commit is made to the GitHub repo or by a GitHub push.
+  * The **functional-test** pipeline is triggered by a successful build.
+  * The **deploy** pipeline is triggered by a successful functional test with a condition for changed made to the **_master_** branch only. This enables the testing of code in a new branch before being merged into the master for release.
 
 
 ![](images/3.png)
@@ -125,10 +124,10 @@ There are a number of ways to work with your code. Most developers will be worki
 * Open the **_dashboard.html_** file
 * Locate lines 44 to 47 where the dashboard photo is defined
 * Swap the comments tags around
+* Save the file
 
 ![](images/8.png)
 
-* Save the file
 
 
 ### **Step 8**: Push change to GitHub
