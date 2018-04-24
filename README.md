@@ -44,7 +44,7 @@ You will use Wercker (Oracle Container Pipeline) as the core CI/CD software life
 
 ### **Step 1**: Introduce the Work Better application
 
-Work Better is a HR web application written in JET. This web application is designed as a microservice to run in a Docker container and deployed over Kubenetes. It is continuously integrated and developer with Wercker and deployed to a Kubernetes cluster running on OCI.
+Work Better is a HR web application written in JET. This web application is designed as a microservice to run in a Docker container and deployed to Kubenetes. It is continuously integrated and deployed to a Kubernetes cluster running on OCI.
 
 * Go to the Work Better dashboard
 * Click on some of the items
