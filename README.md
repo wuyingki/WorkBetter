@@ -59,6 +59,8 @@ Wercker is the next generation container lifecycle management tool. You can crea
 Also explain about the GitHub repository was added to the workflow when the application is created in Wercker.
 
 * Go to the Wercker WorkBeter application
+* Describes the navigation tab along the top
+* Click on the **Runs** tab
 
 ![](images/2.png)
 
@@ -67,19 +69,31 @@ Also explain about the GitHub repository was added to the workflow when the appl
 
 A Workflow in Wercker is how the automation of pipelines are managed. You can interconnect multiple pipelines together to forma workflow. A pipeline can be triggered by a GitHub push or by the previous pipeline.
 
-* Go to the Wercker Workflow page
+* Click on the **Workflow** tab
 
-Explain each pipleine in the workflow:
+* Explain each pipleine in the workflow:
 
-* The **build** pipeline is created by default and it is triggered whenever a commit is made to the GitHub repo or by a GitHub push.
-* The **functional-test** pipeline is triggered by a successful build.
-* The **deploy** pipeline is triggered by a successful functional test with a condition for changed made to the **_master_** branch only. This enables the testing of code in a new branch before being merged into the master for release.
+** The **build** pipeline is created by default and it is triggered whenever a commit is made to the GitHub repo or by a GitHub push.
+** The **functional-test** pipeline is triggered by a successful build.
+** The **deploy** pipeline is triggered by a successful functional test with a condition for changed made to the **_master_** branch only. This enables the testing of code in a new branch before being merged into the master for release.
 
 
 ![](images/3.png)
 
 
-### **Step 4**: Demostrate a code change
+### **Step 4**: Walkthrough the application environment variables
+
+You can define your application environment variables externally under the **Environment** tab. Some of the variables are common standard variables defined by Dockers or Kubernetes, such as the Kubernetes master node address for application deployment, and its token. Similarly, the Docker user and password can be defined here so that the image can be pulled from the registry for deployment.
+
+* Click on the **Environment** tab
+* Describe the variables
+* Highlight the token or key are protected and cannot be displayed or copied for security reason
+
+![](images/3.1.png)
+
+
+
+### **Step 5**: Demostrate a code change
 
 We want to demonstrate how we can trigger a new build by making a code change. The profile picture for Steven King is presented in a square frame. We can change this to be presented in a circular frame.
 
@@ -99,7 +113,7 @@ We can change this by changing a line of code we previously commented it out in 
 
 
 
-### **Step 4**: Working with code
+### **Step 6**: Working with code
 
 There are a number of ways to work with your code. Most developers will be working with an IDE or some OpenSource editors. Or you could make the change directly in the GitHub online editor. However, I have the Brackets editor installed and synchronised with my GitHub repo. So I will use Brackets to illustrate how I create a new branch for the code change and push it back to the repo to trigger the **build** and **functional-test** pipeline, but without excuting the **deploy** pipeline.
 
@@ -117,7 +131,7 @@ There are a number of ways to work with your code. Most developers will be worki
 * Save the file
 
 
-### **Step 5**: Push change to GitHub
+### **Step 8**: Push change to GitHub
 
 We have now made the code change in the new **v1.1** branch and need to push the changes back to GitHub.
 
@@ -128,11 +142,41 @@ We have now made the code change in the new **v1.1** branch and need to push the
 ![](images/9.png)
 
 
-### **Step 6**: Monitor the pipeline execution
+### **Step 9**: Monitor the pipeline execution
+
+The moment we commit the Git push, the **build** pipeline would be triggered in Wercker. Please take note of the pipelines to be executed. The **build** and **functional-test** should be the only pipelines to be executed as the **deploy** pipeline is executed only on changes to the **_master_** branch. Since we have made the changes in a new branch, we can therefore test it without deploying it to production.
+
+* Switch back to Wercker
+* Select the **Run** tab
+* Observe the workflow
+* Click into the pipelines and expand the steps for more detail
+
+![](images/10.png)
 
 
+### **Step 10**: Merge branch and deploy changes to environment
+
+If the previous pipelines completed sucessfully then we can commit the changes into the master branch by merging the **_v1.1_** to the **_master_**. This will automatically trigger a deployment by calling the **deploy** pipeline. Instead of using Brackets to merge the branches, lets use the GitHub editor instead as you can see the steps better visually.
+
+* Switch to GitHub editor
+* Create pull request
+* Click on **Merge pull request**
+
+![](images/14.png)
 
 
+### **Step 11**: Monitor the pipeline execution
 
+Once we commit the merging of the **_master_** and **_v1.1_**, the workflow will be triggered. Please take note of the pipelines to be executed. This time we will execute the **deploy** pipeline as changes have been merged with the **_master_** branch.
+
+* Switch back to Wercker
+* Select the **Run** tab
+* Observe the workflow
+* Click into the pipelines and expand the deploy for more detail
+
+![](images/16.png)
+
+
+### **Step 12**:
 
 
