@@ -132,7 +132,7 @@ There are a number of ways to work with your code. Most developers will be worki
 
 #### **Step 7.1**: Changing the code in GitHub online editor
 
-Using the GitHub online editor is straight forward, however, this is not the preferred way of developing an application.
+Using the GitHub online editor is straight forward, however, this is not the preferred way of developing an application. When a new branch is created, it will trigger the **build** and **functional-test** pipeline, but without excuting the **deploy** pipeline.
 
 * Instead of committing the code to the **_master_** branch, we will create a new branch
 * Check the **Create a new branch for the commit and start a pull request** at the bottom of the file
