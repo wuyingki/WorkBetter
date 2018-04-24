@@ -136,6 +136,7 @@ Using the GitHub online editor is straight forward, however, this is not the pre
 
 * Instead of committing the code to the **_master_** branch, we will create a new branch
 * Check the **Create a new branch for the commit and start a pull request** at the bottom of the file
+* Enter **v1.1** in the new branch field
 * Click on **Propose file change**
 
 ![](images/7.1.png)
