@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: workbetter
-        image: wcr.io/kwanwan/workbetter
+        image: wcr.io/kwanwan/workbetter:$WERCKER_GIT_COMMIT
         ports:
         - containerPort: 80
         resources:
