@@ -42,13 +42,15 @@ You will use Wercker (Oracle Container Pipeline) as the core CI/CD software life
 - Some familiarity with Brackets
 
 
-### Provision an Oracle Container Engine for Managed Kubernetes Service
+## Provision an Oracle Container Engine for Managed Kubernetes Service
 
 This demo requires the Oracle Container Engine for Managed Kubernetes Service (OKE) as the runtime platform.
 
 - If you do not already have an OKE cluster, you must provision one before you can run the demo.
-- Please following the instruction here to provision your OKE cluster [OKE Setup Link](https://www.virtualbox.org/) to download **Virtual Box**.
+- Please follow the instruction here to provision your OKE cluster [OKE Setup Link](https://github.com/kwanwan/WorkBetter/blob/master/OKEsetup.md).
 
+
+## Demo Steps
 
 ### **Step 1**: Introduce the Work Better application
 
