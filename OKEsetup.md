@@ -151,3 +151,25 @@ A `Default DHCP Options for oke-cluster` should have been created for you, simil
 ![](images/29.png)
 
 
+## **STEP 2.5**: Security List Configuration
+
+The VCN must have security lists defined for the worker node subnets and the load balancer subnets. Two security lists have been created (in addition to the default security list) to control access to and from the worker node subnets and load balancer subnets. The two security lists are named 'oke-workers' and 'oke-loadbalancers' respectively.
+
+Create two additional security lists to the default `Default Security List for oke-cluster`
+  - **Security List Name:** `oke-workers`
+  - **Security List Name:** `oke-loadbalancers`
+  
+There are two types of rules, ingress and egress, for both workers and load balancer security lists. There 12 rules in total for the worker node subnet and two rules in total for the load balancer subnet.
+
+Let's create the security lists and rultes.
+
+- - Select **Security** from the list on the left
+
+There should be one default security list `Default Security List for oke-cluster` similar to below.
+
+![](images/30.png)
+
+
+
+
+
