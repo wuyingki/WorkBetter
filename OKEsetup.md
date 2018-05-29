@@ -58,7 +58,7 @@ You must create a VCN for your cluster and it must include the following:
   - The VCN must have a route table defined that has a route rule specifying the internet gateway as the target for the destination CIDR block
   - The VCN must have five subnets defined, three subnets in which to deploy worker nodes and two subnets to host load balancers.
 
-Let's create the VCN
+## **STEP 2.1**: VCN Configuration
 
 - In the Console, click **Networking**, and then click **Virtual CLoud Network**
 
@@ -78,6 +78,10 @@ Let's create the VCN
 ![](images/22.png)
 
 
+## **STEP 2.2**: Internet Gateway Configuration
+
+The VCN must have an internet gateway. The internet gateway must be specified as the target for the destination CIDR block 0.0.0.0/0 in a route rule in a route table.
+
 Once the **oke-cluster** VCN is created
 
 - Click on the **oke-cluster** VCN to enter the details page
@@ -94,4 +98,22 @@ Once the **oke-cluster** VCN is created
 ![](images/23.png)
 
 
+## **STEP 2.3**: Route Table Configuration: 
 
+The VCN must have a route table. The route table must have a route rule that specifies an internet gateway as the target for the destination CIDR block 0.0.0.0/0.
+
+- Select **Route Tables** from the list on the left
+
+- A `Default Route Table for oke-cluster` should have been created for you
+
+- If not create a new one with the following:
+  - **Name:** `routetable-0`
+  - **Destination CIDR block:** `0.0.0.0/0`
+  - **Target Type:** `Internet Gateway`
+  - **Target Internet Gateway:** `oke-gateway-0`
+
+- Leave the rest to default (Compartment defaults to **Demo** for GSE env)
+
+- Click **Create Route Table**
+
+![](images/24.png)
