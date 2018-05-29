@@ -20,10 +20,32 @@ Before you can use Container Engine for Kubernetes to create a Kubernetes cluste
   - A group to which a policy grants the appropriate Container Engine for Kubernetes permissions
   
 - To perform operations on a cluster:
-  - You must have installed and configured the Kubernetes command line tool kubectl
+  - You must have installed and configured the Kubernetes command line tool `kubectl`
   - You must have downloaded the cluster's `kubeconfig` file
 
 The following steps illustrates how you can do the above.
 
 
-### **STEP 1**: Configuring Network Resources
+### **STEP 1**: Create Policy for Container Engine
+
+To create and manage clusters in your tenancy, Container Engine must have access to all resources in the tenancy. To give Container Engine the necessary access, create a policy for the service as follows:
+
+- In the Console, click **Identity**, and then click **Policies**. A list of the policies in the compartment you're viewing is displayed.
+
+- Select the tenancy's **root** compartment from the list on the left
+
+- Click **Create Policy**
+
+- Enter the following:
+  - **Name:** `oke-service`
+  - **Description:** `allow OKE to manage all-resources in tenancy`
+  - **Policy Versioning:** Select **Keep Policy Current**, select **Use Version Date** and enter that date in YYYY-MM-DD format.
+  - **Statement:** The following policy statement:
+  `allow service OKE to manage all-resources in tenancy`
+
+- Leave the rest to default
+
+- Click **Create**
+
+### **STEP 2**: Configuring Network Resources
+
