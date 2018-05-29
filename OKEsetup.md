@@ -163,13 +163,17 @@ There are two types of rules, ingress and egress, for both workers and load bala
 
 Let's create the security lists and rultes.
 
-- - Select **Security** from the list on the left
+- Select **Security** from the list on the left
 
 There should be one default security list `Default Security List for oke-cluster` similar to below.
 
 ![](images/30.png)
 
+- Click **Create Security Lists**
 
-
-
+- Enter the following for first Ingress rule:
+  - **Source CIDR:** `oke-workers`
+  - **IP Protocol:** `Internet Gateway`
+  - **Source Port Range:** `oke-gateway-0`
+  - **Destination Port Range:**
 
