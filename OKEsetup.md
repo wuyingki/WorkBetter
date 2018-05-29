@@ -69,14 +69,28 @@ Let's create the VCN
 - Enter the following:
   - **Name:** `oke-cluster`
   - **CIDR Block:** `10.0.0.0/16`
-  - **DNS Resolution:** Selected to `USE DNS HOSTNAMES IN THIS VCN`
-  
+  - **DNS Resolution:** Check box to **USE DNS HOSTNAMES IN THIS VCN**
+
+- Leave the rest to default (Compartment defaults to **Demo** for GSE env)
+
 - Click **Create Virtual Cloud Network**
+
+![](images/22.png)
+
 
 Once the **oke-cluster** VCN is created
 
 - Click on the **oke-cluster** VCN to enter the details page
 
 - Select **Internet Gateways** from the list on the left
+
+- Enter the following:
+  - **Name:** `oke-gateway-0`
+
+- Leave the rest to default (Compartment defaults to **Demo** for GSE env)
+
+- Click **Create Internet Gateway**
+
+
 
 
