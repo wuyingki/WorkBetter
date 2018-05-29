@@ -21,7 +21,7 @@ Before you can use Container Engine for Kubernetes to create a Kubernetes cluste
   
 - To perform operations on a cluster:
   - You must have installed and configured the Kubernetes command line tool kubectl
-  - You must have downloaded the cluster's **kubeconfig** file
+  - You must have downloaded the cluster's `kubeconfig` file
 
 The following steps illustrates how you can do the above.
 
