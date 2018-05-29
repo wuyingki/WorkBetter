@@ -91,6 +91,7 @@ Once the **oke-cluster** VCN is created
 
 - Click **Create Internet Gateway**
 
+![](images/23.png)
 
 
 
