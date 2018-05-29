@@ -56,11 +56,27 @@ You must create a VCN for your cluster and it must include the following:
   - The VCN must have a CIDR block defined that is large enough for at least five subnets, in order to support the number of hosts and load balancers a cluster will have
   - The VCN must have an internet gateway defined
   - The VCN must have a route table defined that has a route rule specifying the internet gateway as the target for the destination CIDR block
-  - The VCN must have five subnets defined
- 
+  - The VCN must have five subnets defined, three subnets in which to deploy worker nodes and two subnets to host load balancers.
+
+Let's create the VCN
+
 - In the Console, click **Networking**, and then click **Virtual CLoud Network**
 
 - Select your the tenancy's **Demo** compartment (for GSE env) from the list on the left
 
 - Click **Create Virtual Cloud Network**
- 
+
+- Enter the following:
+  - **Name:** `oke-cluster`
+  - **CIDR Block:** `10.0.0.0/16`
+  - **DNS Resolution:** Selected to `USE DNS HOSTNAMES IN THIS VCN`
+  
+- Click **Create Virtual Cloud Network**
+
+Once the **oke-cluster** VCN is created
+
+- Click on the **oke-cluster** VCN to enter the details page
+
+- Select **Internet Gateways** from the list on the left
+
+
