@@ -106,7 +106,11 @@ The VCN must have a route table. The route table must have a route rule that spe
 
 - A `Default Route Table for oke-cluster` should have been created for you
 
-- If not create a new one with the following:
+If a default Route Table has not been created for you, then create a new Route Table.
+
+- Click **Create Route Table**
+
+- Enter the following:
   - **Name:** `routetable-0`
   - **Destination CIDR block:** `0.0.0.0/0`
   - **Target Type:** `Internet Gateway`
@@ -117,3 +121,16 @@ The VCN must have a route table. The route table must have a route rule that spe
 - Click **Create Route Table**
 
 ![](images/24.png)
+
+However, if a default Route Table has been created, then you only need to add a new rule to the Route Table.
+
+- Click on the **Default Route Table for oke-cluster** (default generated name) Route Table to enter the details page
+
+- Click on **Edit Route Rules**
+
+- Enter the following:
+  - **Destination CIDR block:** `0.0.0.0/0`
+  - **Target Type:** `Internet Gateway`
+  - **Target Internet Gateway:** `oke-gateway-0`
+
+![](images/25.png)
