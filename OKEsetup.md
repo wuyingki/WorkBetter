@@ -146,6 +146,8 @@ The VCN must have a DHCP Options configured. The default value for DNS Type of I
 
 - While still in the VCN `oke-cluster` details page, select **DHCP Options** from the list on the left
 
-- A `Default DHCP Options for oke-cluster` should have been created for you, similar to below.
+A `Default DHCP Options for oke-cluster` should have been created for you, similar to below.
 
-![](images/28.png)
+![](images/29.png)
+
+
