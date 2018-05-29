@@ -47,7 +47,7 @@ To create and manage clusters in your tenancy, Container Engine must have access
 
 - Click **Create**
 
-![](images/20.png)
+![](images/21.png)
 
 ### **STEP 2**: Configuring Network Resources
 
