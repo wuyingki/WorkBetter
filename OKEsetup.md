@@ -104,7 +104,11 @@ The VCN must have a route table. The route table must have a route rule that spe
 
 - Select **Route Tables** from the list on the left
 
-- A `Default Route Table for oke-cluster` should have been created for you
+![](images/26.png)
+
+- A `Default Route Table for oke-cluster` should have been created for you, similar to below.
+
+![](images/27.png)
 
 If a default Route Table has not been created for you, then create a new Route Table.
 
@@ -134,3 +138,14 @@ However, if a default Route Table has been created, then you only need to add a 
   - **Target Internet Gateway:** `oke-gateway-0`
 
 ![](images/25.png)
+
+
+## **STEP 2.4**: DHCP Options Configuration
+
+The VCN must have a DHCP Options configured. The default value for DNS Type of Internet and VCN Resolver is acceptable.
+
+- In the Console, click **Networking**, and then click **DNS**
+
+- 
+
+
