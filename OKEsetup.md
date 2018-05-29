@@ -51,3 +51,16 @@ To create and manage clusters in your tenancy, Container Engine must have access
 
 ### **STEP 2**: Configuring Network Resources
 
+You must create a VCN for your cluster and it must include the following:
+
+  - The VCN must have a CIDR block defined that is large enough for at least five subnets, in order to support the number of hosts and load balancers a cluster will have
+  - The VCN must have an internet gateway defined
+  - The VCN must have a route table defined that has a route rule specifying the internet gateway as the target for the destination CIDR block
+  - The VCN must have five subnets defined
+ 
+- In the Console, click **Networking**, and then click **Virtual CLoud Network**
+
+- Select your the tenancy's **Demo** compartment (for GSE env) from the list on the left
+
+- Click **Create Virtual Cloud Network**
+ 
