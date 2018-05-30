@@ -171,9 +171,15 @@ There should be one default security list `Default Security List for oke-cluster
 
 - Click **Create Security Lists**
 
-- Enter the following for first Ingress rule:
-  - **Source CIDR:** `oke-workers`
-  - **IP Protocol:** `Internet Gateway`
-  - **Source Port Range:** `oke-gateway-0`
-  - **Destination Port Range:**
+- Enter the following for first Ingress rule for **oke-worker** security list name:
+  - **Security List Name:** `oke-workers`
+  - **Source CIDR:** `10.0.10.0/24`
+  - **IP Protocol:** `TCP`
+  - **Source Port Range:** `ALL`
+  - **Destination Port Range:** `ALL`
 
+![](images/31.png)
+
+- Enter the rest of the Ingress rules following the table below:
+
+![](images/32.png)
