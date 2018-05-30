@@ -229,6 +229,7 @@ We usually require five subnets in the VCN to create and deploy clusters in a hi
   - **DHCP Options:** `Default DHCP Options for oke-cluster`
   - **Security Lists:** `oke-workers`
 
+You should have something similar to below:
 
 ![](images/36.png)
 
@@ -243,22 +244,30 @@ We usually require five subnets in the VCN to create and deploy clusters in a hi
 
 ![](images/38.png)
 
+With the five subnets connected, we are ready to create a Kubernetes cluster.
 
-### **STEP 3**: Create a Cluster
+
+
+### **STEP 3**: Create a Kubernetes Cluster
   
   
-- In the Console, click **Clusters**, and select the tenancy's **Demo** compartment from the list on the left
+- In the Console, click **Containers**, choose the **Demo** compartment, and then click **Clusters**
 
 - Click **Create Cluster**
 
-- Enter the following:
-  - **Name:** `oke-service`
-  - **Description:** `allow OKE to manage all-resources in tenancy`
-  - **Policy Versioning:** Select **Keep Policy Current**, select **Use Version Date** and enter that date in YYYY-MM-DD format.
-  - **Statement:** The following policy statement:
-  `allow service OKE to manage all-resources in tenancy`
+- Enter the following configuration details for the new cluster:
+  - **Name:** `Demo`
+  - **Version:** `v1.9.7`
+  - **VCN:** `oke-cluster`
+  - **Kubernetes Service LB Subnets:** `oke-workers-1`, `oke-workers-2`
+  - **Kubernetes Dashboard Enabled:** `Checked`
+  - **Tiller (Helm) Enabled:** `Checked`
 
-- Leave the rest to default
+- Leave the rest of the fields to default and you should have something similar to below:
+
+![](images/39.png)
+
+You can either Click **Create** now and create your node pools later.
 
 - Click **Create**
 
