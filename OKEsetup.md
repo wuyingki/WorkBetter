@@ -153,13 +153,13 @@ A `Default DHCP Options for oke-cluster` should have been created for you, simil
 
 ## **STEP 2.5**: Security List Configuration
 
-The VCN must have security lists defined for the worker node subnets and the load balancer subnets. Two security lists have been created (in addition to the default security list) to control access to and from the worker node subnets and load balancer subnets. The two security lists are named 'oke-workers' and 'oke-loadbalancers' respectively.
+The VCN must have security lists defined for the Worker Node Subnets and the Load Balancer Subnets. Two security lists need to be created (in addition to the default security list) to control access to and from the worker node subnets and load balancer subnets. The two security lists are named **oke-workers** and **oke-loadbalancers** respectively.
 
 Create two additional security lists to the default `Default Security List for oke-cluster`
   - **Security List Name:** `oke-workers`
   - **Security List Name:** `oke-loadbalancers`
   
-There are two types of rules, ingress and egress, for both workers and load balancer security lists. There 12 rules in total for the worker node subnet and two rules in total for the load balancer subnet.
+There are two types of rules, Ingress and Egress, for both Workers and Load Balancer security lists. There 12 rules in total for the Worker Node Subnet and two rules in total for the Load Balancer Subnet.
 
 Let's create the security lists and rules.
 
@@ -204,3 +204,50 @@ There should be one default security list `Default Security List for oke-cluster
 You should now have three security lists similar to below:
 
 ![](images/35.png)
+
+
+## **STEP 2.6**: Subnet Configuration
+
+We usually require five subnets in the VCN to create and deploy clusters in a highly available configuration. The following configuration assumes you will be deploying across all three Availability Domains.
+
+
+  - Three subnets in which to deploy worker nodes. Each worker node subnet must be in a different availability domain. The worker node subnets must have different security lists to the load balancer subnets.
+  
+  - Two subnets to host load balancers. Each load balancer subnet must be in a different availability domain. The load balancer subnets must have different security lists to the worker node subnets.
+  
+- Still in the VCN page, select **Subnets** from the list on the left
+
+- Click **Create Subnet**
+
+- Enter the following:
+  - **Name:** `oke-workers-1`
+  - **Availability Domain:** `emra:US-ASHBURN-AD-1`
+  - **CIDR Block:** `10.0.10.0/24`
+  - **Route Table:** `Default Route Table for oke-cluster`
+  - **Public Subnet:** `Allow public IP addresses for instances in this Subnet`
+  - **DNS Resolution:** `Use DNS Hostnames In This Subnet`
+  - **DHCP Options:** `Default DHCP Options for oke-cluster`
+  - **Security Lists:** `oke-workers`
+
+
+![](images/36.png)
+
+
+### **STEP 3**: Create a Cluster
+  
+  
+- In the Console, click **Clusters**, and select the tenancy's **Demo** compartment from the list on the left
+
+- Click **Create Cluster**
+
+- Enter the following:
+  - **Name:** `oke-service`
+  - **Description:** `allow OKE to manage all-resources in tenancy`
+  - **Policy Versioning:** Select **Keep Policy Current**, select **Use Version Date** and enter that date in YYYY-MM-DD format.
+  - **Statement:** The following policy statement:
+  `allow service OKE to manage all-resources in tenancy`
+
+- Leave the rest to default
+
+- Click **Create**
+
