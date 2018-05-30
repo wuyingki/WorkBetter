@@ -186,10 +186,17 @@ There should be one default security list `Default Security List for oke-cluster
 
 ![](images/32.png)
 
-- Before clicking on **Create Security List**, you need to complete the Ergress rules for **oke-worker**
+- Before clicking on **Create Security List** button to complete, you need to enter the Ergress rules as well.
+
+- Enter the rest of the Engress rules following the table below:
 
 ![](images/33.png)
 
+- Click on **Create Security List** button to complete
 
 
+### **STEP 2.5.2**: Create Security List for Load Balancer Subnets
 
+- Repeat Step 2.5.1 for the Load Balancer subnet using the rules below:
+
+![](images/34.png)
