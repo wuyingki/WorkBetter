@@ -263,11 +263,24 @@ With the five subnets connected, we are ready to create a Kubernetes cluster.
   - **Kubernetes Dashboard Enabled:** `Checked`
   - **Tiller (Helm) Enabled:** `Checked`
 
-- Leave the rest of the fields to default and you should have something similar to below:
+Leave the rest of the fields to default and you should have something similar to below:
 
 ![](images/39.png)
 
-You can either Click **Create** now and create your node pools later.
+You can either Click **Create** now and create your node pools later OR add the node pools now. Let's add the node pools now to save a step.
+
+- Click **Add Node Pool**
+
+- Enter the following configuration details for the new node pool:
+  - **Name:** `workbetter`
+  - **Version:** `v1.9.7`
+  - **Image:** `Oracle-Linux-7.4`
+  - **Shape:** `VM.Standard2.1`
+  - **Subnets:** `oke-wokrers-1`
+  - **Quantity Per Subnet:** `1`
+
+Leave the rest of the fields to default and you should have something similar to below:
+
+![](images/40.png)
 
 - Click **Create**
-
