@@ -200,3 +200,7 @@ There should be one default security list `Default Security List for oke-cluster
 - Repeat Step 2.5.1 for the Load Balancer subnet using the rules below:
 
 ![](images/34.png)
+
+You should now have three security lists similar to below:
+
+![](images/35.png)
