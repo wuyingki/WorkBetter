@@ -219,7 +219,7 @@ We usually require five subnets in the VCN to create and deploy clusters in a hi
 
 - Click **Create Subnet**
 
-- Enter the following:
+- Enter the following for the first subnet:
   - **Name:** `oke-workers-1`
   - **Availability Domain:** `emra:US-ASHBURN-AD-1`
   - **CIDR Block:** `10.0.10.0/24`
@@ -231,6 +231,17 @@ We usually require five subnets in the VCN to create and deploy clusters in a hi
 
 
 ![](images/36.png)
+
+- Click **Create**
+
+- Repeat the above for the remaining two worker subnets **oke-workers-2** and **oke-workers-3** as below:
+
+![](images/37.png)
+
+
+- Repeat the above for the two load balancer subnets as below:
+
+![](images/38.png)
 
 
 ### **STEP 3**: Create a Cluster
