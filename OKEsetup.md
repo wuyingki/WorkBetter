@@ -161,13 +161,15 @@ Create two additional security lists to the default `Default Security List for o
   
 There are two types of rules, ingress and egress, for both workers and load balancer security lists. There 12 rules in total for the worker node subnet and two rules in total for the load balancer subnet.
 
-Let's create the security lists and rultes.
+Let's create the security lists and rules.
 
 - Select **Security** from the list on the left
 
 There should be one default security list `Default Security List for oke-cluster` similar to below.
 
 ![](images/30.png)
+
+### **STEP 2.5.1**: Create Security List for Work Node Subnets
 
 - Click **Create Security Lists**
 
@@ -183,3 +185,11 @@ There should be one default security list `Default Security List for oke-cluster
 - Enter the rest of the Ingress rules following the table below:
 
 ![](images/32.png)
+
+- Before clicking on **Create Security List**, you need to complete the Ergress rules for **oke-worker**
+
+![](images/33.png)
+
+
+
+
