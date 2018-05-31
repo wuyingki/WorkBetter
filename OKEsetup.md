@@ -60,7 +60,7 @@ You must create a VCN for your cluster and it must include the following:
 
 ## **STEP 2.1**: VCN Configuration
 
-- In the Console, click **Networking**, and then click **Virtual CLoud Network**
+- In the Console, click **Networking**, and then click **Virtual Cloud Network**
 
 - Select your the tenancy's **Demo** compartment (for GSE env) from the list on the left
 
@@ -240,7 +240,7 @@ You should have something similar to below:
 ![](images/37.png)
 
 
-- Repeat the above for the two load balancer subnets as below:
+- Repeat the above for the two load balancer subnets **oke-loadbalancer-1** and **oke-loadbalancer-2** as below:
 
 ![](images/38.png)
 
@@ -284,3 +284,61 @@ Leave the rest of the fields to default and you should have something similar to
 ![](images/40.png)
 
 - Click **Create**
+
+The Kubernetes cluster is now ready to use.
+
+
+### **STEP 4**: Downloading a kubeconfig File to Enable Cluster Access
+
+When you create a cluster, Container Engine creates a Kubernetes configuration file for the cluster called `kubeconfig`. The `kubeconfig` file provides the necessary details to access the cluster using **kubectl** and the Kubernetes Dashboard.
+
+You must download the `kubeconfig` file and set an environment variable to point to it. Having completed the steps, you can start using **kubectl** and the Kubernetes Dashboard to manage the cluster.
+
+
+
+## **STEP 4.1**: Generate an API signing key pair
+
+Use OpenSSL commands to generate the key pair in the required PEM format.
+
+- If you haven't already, create a .oci directory to store the credentials:
+
+`mkdir ~/.oci`
+
+- Generate the private key with one of the following commands:
+
+`openssl genrsa -out ~/.oci/oci_api_key.pem -aes128 2048`
+
+- Ensure that only you can read the private key file:
+
+`chmod go-rwx ~/.oci/oci_api_key.pem`
+
+- Generate the public key:
+
+`openssl rsa -pubout -in ~/.oci/oci_api_key.pem -out ~/.oci/oci_api_key_public.pem`
+
+- Copy the contents of the public key to the clipboard using pbcopy, xclip or a similar tool (you'll need to paste the value into the Console later). For example:
+
+`cat ~/.oci/oci_api_key_public.pem | pbcopy`
+
+- Get the key's fingerprint with the following OpenSSL command:
+
+`openssl rsa -pubout -outform DER -in ~/.oci/oci_api_key.pem | openssl md5 -c`
+
+When you upload the public key in the Console, the fingerprint is also automatically displayed there. It looks something like this: `12:34:56:78:90:ab:cd:ef:12:34:56:78:90:ab:cd:ef`
+
+
+## **STEP 4.2**: Upload the Public Key
+
+You can now upload the PEM public key in the OCI Console.
+
+- In the Console, click **api.user**, and then click **User Settings**. The user details page is now shown.
+
+- Click **Add Public Key**
+
+- Paste the contents of the PEM public key in the dialog box and click **Add**
+
+You should see something similar to below with the key's fingerprint under the API Keys.
+
+![](images/41.png)
+
+
