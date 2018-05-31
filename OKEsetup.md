@@ -296,7 +296,7 @@ You must download the `kubeconfig` file and set an environment variable to point
 
 
 
-## **STEP 4.1**: Generate an API signing key pair
+## **STEP 4.1**: Generate an API Signing Key Pair
 
 Use OpenSSL commands to generate the key pair in the required PEM format.
 
@@ -327,7 +327,7 @@ Use OpenSSL commands to generate the key pair in the required PEM format.
 When you upload the public key in the Console, the fingerprint is also automatically displayed there. It looks something like this: `12:34:56:78:90:ab:cd:ef:12:34:56:78:90:ab:cd:ef`
 
 
-## **STEP 4.2**: Upload the Public Key
+## **STEP 4.2**: Upload the Public Key of the API Signing Key Pair
 
 You can now upload the PEM public key in the OCI Console.
 
@@ -341,4 +341,21 @@ You should see something similar to below with the key's fingerprint under the A
 
 ![](images/41.png)
 
+
+## **STEP 4.3**: Installing the Oracle Cloud Infrastructure CLI
+
+The command line interface (CLI) is a tool that enables you to work with Oracle Cloud Infrastructure objects and services. The CLI provides much the same functionality as the Console and includes additional advanced commands.
+
+There are different installation options and steps to install the CLI and required software depending on your platform. It is not possbile to cover all the options on this page. Please refer to [Installing the CLI Link](https://docs.us-phoenix-1.oraclecloud.com/Content/API/SDKDocs/cliinstall.htm) to install your CLI.
+
+
+## **STEP 4.4**: Configuring the Oracle Cloud Infrastructure CLI
+
+Before using the CLI, you have to create a config file that contains the required credentials for working with Oracle Cloud Infrastructure. You can create this file using a setup dialog or manually, using a text editor. It is recommended to use the setup dialog.
+
+- Open a shell and run the `oci setup config` command
+
+The command prompts you for the information required for the config file and the API public/private keys.
+
+- When prompted for the API public/private keys, you can specify the keys you generated previously.
 
