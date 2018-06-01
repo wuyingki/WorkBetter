@@ -106,7 +106,7 @@ The VCN must have a route table. The route table must have a route rule that spe
 
   ![](images/26.png)
 
-A `Default Route Table for oke-cluster` should have been created for you, similar to below.
+  A `Default Route Table for oke-cluster` should have been created for you, similar to below.
 
   ![](images/27.png)
 
@@ -288,12 +288,12 @@ You can either Click **Create** now and create your node pools later OR add the 
 The Kubernetes cluster is now ready to use.
 
 
+
 ## **STEP 4**: Downloading a kubeconfig File to Enable Cluster Access
 
 When you create a cluster, Container Engine creates a Kubernetes configuration file for the cluster called `kubeconfig`. The `kubeconfig` file provides the necessary details to access the cluster using **kubectl** and the Kubernetes Dashboard.
 
 You must download the `kubeconfig` file and set an environment variable to point to it. Having completed the steps, you can start using **kubectl** and the Kubernetes Dashboard to manage the cluster.
-
 
 
 ### **STEP 4.1**: Generate an API Signing Key Pair
@@ -409,4 +409,25 @@ Before using the CLI, you have to create a config file that contains the require
 You can now use kubectl and the Kubernetes Dashboard to perform operations on the cluster.
 
 
+## **STEP 4**: Starting The Kubernetes Dashboard
+
+Kubernetes Dashboard is a web-based user interface that you can use as an alternative to the Kubernetes kubectl command line tool to:
+
+- deploy containerized applications to a Kubernetes cluster
+- troubleshoot your containerized applications
+
+You use the Kubernetes Dashboard to get an overview of applications running on a cluster, as well as to create or modify individual Kubernetes resources. The Kubernetes Dashboard also reports the status of Kubernetes resources in the cluster, and any errors that have occurred.
+
+In contrast to the Kubernetes Dashboard, Container Engine enables you to create and delete Kubernetes clusters and node pools, and to manage the associated compute, network, and storage resources.
+
+Before you can use the Kubernetes Dashboard, you need to specify the cluster on which to perform operations.
+
+To start the Kubernetes Dashboard:
+
+- In a terminal window where you have exported the `KUBECONFIG` environment variable, enter **kubectl proxy** to ebable the Kubernetes Dashboard access.
+
+- Open a browser and go to http://localhost:8001/ui to display the Kubernetes Dashboard.
+
+
+The Kubernetes cluster setup is complete and you are now able to deploy your application to this cluster.
 
