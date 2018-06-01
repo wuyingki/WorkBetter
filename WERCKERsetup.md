@@ -7,9 +7,24 @@ Before you can use Wercker to build and deploy to a OKE cluster, you must have a
 - GitHub account
 - Wercker account
 - A OKE cluster
+- A forked Work Better repository
 
 
-## Creating a Work Better Application in Wercker
+## Create Wercker Application
+
+### **STEP 1**: Fork Java Application on GitHub
+
+- From any browser, go to:
+
+    [https://github.com/kwanwan/WorkBetter)
+
+- Click **Fork** in the upper right hand corner of the browser. **Sign in** if prompted.
+
+  ![](images/100/1.png)
+
+  **NOTE:** If prompted, choose to fork the repository to your account (this may occur if your account is also a member of an organization on GitHub).
+
+
 
 ### **Step 1**: Create an Application in Wercker
 
@@ -19,7 +34,7 @@ To create an application (aka project) in Wercker, you need to log in to Wercker
 
 - Click **LOG IN WITH GITHUB**
 
-- Once logged in, click on the **+** sign icon on the top right hand corner of the page and select ** Add application** from the drop down list.
+- Once logged in, click on the **+** sign icon on the top right hand corner of the page and select **Add application** from the drop down list.
 
 - Select **GitHub** as your SCM on the **Create New Application** page, and click **Next**
 
