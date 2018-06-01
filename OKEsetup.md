@@ -47,7 +47,7 @@ To create and manage clusters in your tenancy, Container Engine must have access
 
 - Click **Create**
 
-![](images/21.png)
+  ![](images/21.png)
 
 ## **STEP 2**: Configuring Network Resources
 
@@ -75,7 +75,7 @@ You must create a VCN for your cluster and it must include the following:
 
 - Click **Create Virtual Cloud Network**
 
-![](images/22.png)
+  ![](images/22.png)
 
 
 ### **STEP 2.2**: Internet Gateway Configuration
@@ -95,7 +95,7 @@ Once the **oke-cluster** VCN is created
 
 - Click **Create Internet Gateway**
 
-![](images/23.png)
+  ![](images/23.png)
 
 
 ### **STEP 2.3**: Route Table Configuration: 
@@ -104,11 +104,11 @@ The VCN must have a route table. The route table must have a route rule that spe
 
 - Select **Route Tables** from the list on the left
 
-![](images/26.png)
+  ![](images/26.png)
 
 A `Default Route Table for oke-cluster` should have been created for you, similar to below.
 
-![](images/27.png)
+  ![](images/27.png)
 
 If a default Route Table has not been created for you, then create a new Route Table.
 
@@ -124,7 +124,7 @@ If a default Route Table has not been created for you, then create a new Route T
 
 - Click **Create Route Table**
 
-![](images/24.png)
+  ![](images/24.png)
 
 However, if a default Route Table has been created, then you only need to add a new rule to the Route Table.
 
@@ -137,7 +137,7 @@ However, if a default Route Table has been created, then you only need to add a 
   - **Target Type:** `Internet Gateway`
   - **Target Internet Gateway:** `oke-gateway-0`
 
-![](images/25.png)
+  ![](images/25.png)
 
 
 ### **STEP 2.4**: DHCP Options Configuration
@@ -146,9 +146,9 @@ The VCN must have a DHCP Options configured. The default value for DNS Type of I
 
 - While still in the VCN `oke-cluster` details page, select **DHCP Options** from the list on the left
 
-A `Default DHCP Options for oke-cluster` should have been created for you, similar to below.
+  A `Default DHCP Options for oke-cluster` should have been created for you, similar to below.
 
-![](images/29.png)
+  ![](images/29.png)
 
 
 ### **STEP 2.5**: Security List Configuration
@@ -165,9 +165,9 @@ Let's create the security lists and rules.
 
 - Select **Security** from the list on the left
 
-There should be one default security list `Default Security List for oke-cluster` similar to below.
+  There should be one default security list `Default Security List for oke-cluster` similar to below.
 
-![](images/30.png)
+  ![](images/30.png)
 
 ### **STEP 2.5.1**: Create Security List for Work Node Subnets
 
@@ -180,17 +180,17 @@ There should be one default security list `Default Security List for oke-cluster
   - **Source Port Range:** `ALL`
   - **Destination Port Range:** `ALL`
 
-![](images/31.png)
+  ![](images/31.png)
 
 - Enter the rest of the Ingress rules following the table below:
 
-![](images/32.png)
+  ![](images/32.png)
 
 - Before clicking on **Create Security List** button to complete, you need to enter the Ergress rules as well.
 
 - Enter the rest of the Engress rules following the table below:
 
-![](images/33.png)
+  ![](images/33.png)
 
 - Click on **Create Security List** button to complete
 
@@ -199,11 +199,11 @@ There should be one default security list `Default Security List for oke-cluster
 
 - Repeat Step 2.5.1 for the Load Balancer subnet using the rules below:
 
-![](images/34.png)
+  ![](images/34.png)
 
-You should now have three security lists similar to below:
+  You should now have three security lists similar to below:
 
-![](images/35.png)
+  ![](images/35.png)
 
 
 ### **STEP 2.6**: Subnet Configuration
@@ -229,20 +229,20 @@ We usually require five subnets in the VCN to create and deploy clusters in a hi
   - **DHCP Options:** `Default DHCP Options for oke-cluster`
   - **Security Lists:** `oke-workers`
 
-You should have something similar to below:
+  You should have something similar to below:
 
-![](images/36.png)
+  ![](images/36.png)
 
 - Click **Create**
 
 - Repeat the above for the remaining two worker subnets **oke-workers-2** and **oke-workers-3** as below:
 
-![](images/37.png)
+  ![](images/37.png)
 
 
 - Repeat the above for the two load balancer subnets **oke-loadbalancer-1** and **oke-loadbalancer-2** as below:
 
-![](images/38.png)
+  ![](images/38.png)
 
 With the five subnets connected, we are ready to create a Kubernetes cluster.
 
@@ -263,9 +263,9 @@ With the five subnets connected, we are ready to create a Kubernetes cluster.
   - **Kubernetes Dashboard Enabled:** `Checked`
   - **Tiller (Helm) Enabled:** `Checked`
 
-Leave the rest of the fields to default and you should have something similar to below:
+  Leave the rest of the fields to default and you should have something similar to below:
 
-![](images/39.png)
+  ![](images/39.png)
 
 You can either Click **Create** now and create your node pools later OR add the node pools now. Let's add the node pools now to save a step.
 
@@ -279,9 +279,9 @@ You can either Click **Create** now and create your node pools later OR add the 
   - **Subnets:** `oke-wokrers-1`
   - **Quantity Per Subnet:** `1`
 
-Leave the rest of the fields to default and you should have something similar to below:
+  Leave the rest of the fields to default and you should have something similar to below:
 
-![](images/40.png)
+  ![](images/40.png)
 
 - Click **Create**
 
@@ -302,29 +302,29 @@ Use OpenSSL commands to generate the key pair in the required PEM format.
 
 - If you haven't already, create a .oci directory to store the credentials:
 
-```mkdir ~/.oci```
+  `mkdir ~/.oci`
 
 - Generate the private key with one of the following commands:
 
-```openssl genrsa -out ~/.oci/oci_api_key.pem -aes128 2048```
+  `openssl genrsa -out ~/.oci/oci_api_key.pem -aes128 2048`
 
 - Ensure that only you can read the private key file:
 
-```chmod go-rwx ~/.oci/oci_api_key.pem```
+  `chmod go-rwx ~/.oci/oci_api_key.pem`
 
 - Generate the public key:
 
-```openssl rsa -pubout -in ~/.oci/oci_api_key.pem -out ~/.oci/oci_api_key_public.pem```
+  `openssl rsa -pubout -in ~/.oci/oci_api_key.pem -out ~/.oci/oci_api_key_public.pem`
 
 - Copy the contents of the public key to the clipboard using pbcopy, xclip or a similar tool (you'll need to paste the value into the Console later). For example:
 
-```cat ~/.oci/oci_api_key_public.pem | pbcopy```
+  `cat ~/.oci/oci_api_key_public.pem | pbcopy`
 
 - Get the key's fingerprint with the following OpenSSL command:
 
-```openssl rsa -pubout -outform DER -in ~/.oci/oci_api_key.pem | openssl md5 -c```
+  `openssl rsa -pubout -outform DER -in ~/.oci/oci_api_key.pem | openssl md5 -c`
 
-When you upload the public key in the Console, the fingerprint is also automatically displayed there. It looks something like this: `12:34:56:78:90:ab:cd:ef:12:34:56:78:90:ab:cd:ef`
+  When you upload the public key in the Console, the fingerprint is also automatically displayed there. It looks something like this: `12:34:56:78:90:ab:cd:ef:12:34:56:78:90:ab:cd:ef`
 
 
 ### **STEP 4.2**: Upload the Public Key of the API Signing Key Pair
@@ -337,9 +337,9 @@ You can now upload the PEM public key in the OCI Console.
 
 - Paste the contents of the PEM public key in the dialog box and click **Add**
 
-You should see something similar to below with the key's fingerprint under the API Keys.
+  You should see something similar to below with the key's fingerprint under the API Keys.
 
-![](images/41.png)
+  ![](images/41.png)
 
 
 ### **STEP 4.3**: Installing the Oracle Cloud Infrastructure CLI
@@ -355,7 +355,7 @@ Before using the CLI, you have to create a config file that contains the require
 
 - Open a shell and run the `oci setup config` command
 
-The command prompts you for the information required for the config file and the API public/private keys.
+  The command prompts you for the information required for the config file and the API public/private keys.
 
 - When prompted for the API public/private keys, you can specify the keys you generated previously.
 
@@ -368,29 +368,28 @@ The command prompts you for the information required for the config file and the
 
 - On the **Cluster** List page, click the **Demo** cluster you created. The Cluster page shows details of the cluster similar to below:
 
-![](images/42.png)
+  ![](images/42.png)
 
 - Click the **Access Kubeconfig** button to display the How to **Access Kubeconfig dialog box**
 
 - Click the **Download script** button to download the `get-kubeconfig.sh` file to a convenient location on the machine where you installed the Oracle Cloud Infrastructure CLI (for example, your home directory).
 
-![](images/43.png)
+  ![](images/43.png)
 
 - Make the get-kubeconfig.sh file executable. For example on Linux or MacOS:
 
-```$ chmod +x ~/get-kubeconfig.sh```
+  `$ chmod +x ~/get-kubeconfig.sh`
 
 - Set the **ENDPOINT** environment variable to point to the region in which you created the cluster. Use one of us-phoenix-1, us-ashburn-1, eu-frankfurt-1, or uk-london-1 to specify the region. For example, on Linux or MacOS:
 
-
-```$ export ENDPOINT=containerengine.us-phoenix-1.oraclecloud.com```
+  `$ export ENDPOINT=containerengine.us-phoenix-1.oraclecloud.com`
 
 - Run the `get-kubeconfig.sh` file to download the `kubeconfig` file and save it in a location accessible to kubectl and the Kubernetes Dashboard. For example on Linux or MacOS:
 
 
-```$ ~/get-kubeconfig.sh ocid1.cluster.oc1.phx.aaaaaaaaae... > ~/kubeconfig```
+  `$ ~/get-kubeconfig.sh ocid1.cluster.oc1.phx.aaaaaaaaae... > ~/kubeconfig`
 
-Where ocid1.cluster.oc1.phx.aaaaaaaaae... is the OCID of the current cluster.
+  Where ocid1.cluster.oc1.phx.aaaaaaaaae... is the OCID of the current cluster.
 
 - For convenience, the command in the How to **Access Kubeconfig** dialog box already includes the cluster's OCID. You can simply copy and paste that command.
 
@@ -399,14 +398,13 @@ Where ocid1.cluster.oc1.phx.aaaaaaaaae... is the OCID of the current cluster.
 
 - In a terminal window, set the **KUBECONFIG** environment variable to the name and location of the `kubeconfig` file. For example, on Linux or MacOS:
 
-```$ export KUBECONFIG=~/kubeconfig```
-
+  `$ export KUBECONFIG=~/kubeconfig`
 
 - Verify that **kubectl** is available and that it can connect to the cluster
 
-```$ kubectl get nodes```
+  `$ kubectl get nodes`
 
-Information about the nodes in the cluster is shown.
+  Information about the nodes in the cluster should be shown.
 
 You can now use kubectl and the Kubernetes Dashboard to perform operations on the cluster.
 
