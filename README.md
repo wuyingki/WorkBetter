@@ -50,6 +50,14 @@ This demo requires the Oracle Container Engine for Managed Kubernetes Service (O
 - Please follow the instruction here to provision your OKE cluster [OKE Setup Link](https://github.com/kwanwan/WorkBetter/blob/master/OKEsetup.md).
 
 
+## Provision a Wercker Project
+
+This demo also requires a Wercker project orchestrating the build and deployment of the Work Better application to an OKE cluster.
+
+- If you do not already have a Wercker project for Work Better, you must create and configure one before you can run the demo.
+- Please follow the instruction here to create your Work Better project in Wercker [Wercker Setup Link] (https://github.com/kwanwan/WorkBetter/blob/master/Werckersetup.md).
+
+
 ## Demo Steps
 
 ### **Step 1**: Introduce the Work Better application
@@ -59,7 +67,7 @@ Work Better is a HR web application written in JET. This web application is desi
 * Go to the Work Better dashboard
 * Click on some of the items
 
-![](images/1.png)
+  ![](images/1.png)
 
 
 ### **Step 2**: Introduce Wercker (Oracle Container Pipeline)
@@ -72,7 +80,7 @@ Also explain about the GitHub repository was added to the workflow when the appl
 * Describes the navigation tab along the top
 * Click on the **Runs** tab
 
-![](images/2.png)
+  ![](images/2.png)
 
 
 ### **Step 3**: Walkthrough the WorkBetter workflow
@@ -88,7 +96,7 @@ A Workflow in Wercker is how the automation of pipelines are managed. You can in
   * The **deploy** pipeline is triggered by a successful functional test with a condition for changed made to the **_master_** branch only. This enables the testing of code in a new branch before being merged into the master for release.
 
 
-![](images/3.png)
+  ![](images/3.png)
 
 
 ### **Step 4**: Walkthrough the application environment variables
@@ -99,7 +107,7 @@ You can define your application environment variables externally under the **Env
 * Describe the variables
 * Highlight the token or key are protected and cannot be displayed or copied for security reason
 
-![](images/3.1.png)
+  ![](images/3.1.png)
 
 
 ### **Step 5**: Walkthrough the Kubernetes dashboard
@@ -112,14 +120,14 @@ You can monitor and manage your Kurbernetes cluster through its dashboard. Not e
 * Select **_Service_**
 * Highlight the **_External endpoints_**, this is the IP address to access the WorkBeter application
 
-![](images/3.2.png)
+  ![](images/3.2.png)
 
 
 ### **Step 6**: Demostrate a code change
 
 We want to demonstrate how we can trigger a new build by making a code change. The profile picture for Steven King is presented in a square frame. We can change this to be presented in a circular frame.
 
-![](images/4.png)
+  ![](images/4.png)
 
 We can change this by changing a line of code we previously commented it out in the **_dashboard.html_** under **_WorkBetter/website/js/views_** in our GitHub repo.
 
@@ -127,11 +135,11 @@ We can change this by changing a line of code we previously commented it out in 
 * Open the **_dashboard.html_** file
 * Locate lines 44 to 47 where the dashboard photo is defined
 
-![](images/5.png)
+  ![](images/5.png)
 
 * All we got to do is swap the comments tags around like so
 
-![](images/6.png)
+  ![](images/6.png)
 
 
 
@@ -149,7 +157,7 @@ Using the GitHub online editor is straight forward, however, this is not the pre
 * Enter **v1.1** in the new branch field
 * Click on **Propose file change**
 
-![](images/7.1.png)
+  ![](images/7.1.png)
 
 * You have now made a change to the file in a new branch
 
@@ -163,14 +171,14 @@ As I have the Brackets editor installed and synchronised with my GitHub repo, I 
 * Open Brackets
 * Create a new branch **v1.1**
 
-![](images/7.png)
+  ![](images/7.png)
 
 * Open the **_dashboard.html_** file
 * Locate lines 44 to 47 where the dashboard photo is defined
 * Swap the comments tags around
 * Save the file
 
-![](images/8.png)
+  ![](images/8.png)
 
 
 
@@ -182,7 +190,7 @@ We have now made the code change in the new **v1.1** branch and need to push the
 * Enter a commit message
 * Click on **Git Push** button synchronise
 
-![](images/9.png)
+  ![](images/9.png)
 
 
 ### **Step 9**: Monitor the pipeline execution
@@ -194,7 +202,7 @@ The moment we commit the Git push, the **build** pipeline would be triggered in 
 * Observe the workflow
 * Click into the pipelines and expand the steps for more detail
 
-![](images/10.png)
+  ![](images/10.png)
 
 
 ### **Step 10**: Merge branch and deploy changes to environment
@@ -205,7 +213,7 @@ If the previous pipelines completed sucessfully then we can commit the changes i
 * Create pull request
 * Click on **Merge pull request**
 
-![](images/14.png)
+  ![](images/14.png)
 
 
 ### **Step 11**: Monitor the pipeline execution
@@ -217,7 +225,7 @@ Once we commit the merging of the **_master_** and **_v1.1_**, the workflow will
 * Observe the workflow
 * Click into the pipelines and expand the deploy for more detail
 
-![](images/16.png)
+  ![](images/16.png)
 
 
 ### **Step 12**: Reload the WorkBetter application
@@ -227,7 +235,7 @@ You can now see the changes by reloading your browser page. The key message is h
 * Reload WorkBetter dashboard in your browser
 * Observse the profile photo changed to a circular frame
 
-![](images/17.png)
+  ![](images/17.png)
 
 
 ## End
