@@ -50,12 +50,12 @@ This demo requires the Oracle Container Engine for Managed Kubernetes Service (O
 - Please follow the instruction here to provision your OKE cluster [OKE Setup Link](https://github.com/kwanwan/WorkBetter/blob/master/OKEsetup.md).
 
 
-## Provision a Wercker Project
+## Provision a Wercker Application
 
-This demo also requires a Wercker project orchestrating the build and deployment of the Work Better application to an OKE cluster.
+This demo also requires Wercker to orchestrate the build and deployment of the Work Better application to an OKE cluster. This involves configure Wercker pipelines and workflow.
 
-- If you do not already have a Wercker project for Work Better, you must create and configure one before you can run the demo.
-- Please follow the instruction here to create your Work Better project in Wercker [Wercker Setup Link](https://github.com/kwanwan/WorkBetter/blob/master/WERCKERsetup.md).
+- If you do not already have Wercker setup for Work Better, you must create and configure one before you can run the demo.
+- Please follow the instruction here to create your Work Better application in Wercker [Wercker Setup Link](https://github.com/kwanwan/WorkBetter/blob/master/WERCKERsetup.md).
 
 
 ## Demo Steps
