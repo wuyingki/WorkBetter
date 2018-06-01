@@ -26,7 +26,7 @@ Before you can use Container Engine for Kubernetes to create a Kubernetes cluste
 The following steps illustrates how you can do the above.
 
 
-### **STEP 1**: Create Policy for Container Engine
+## **STEP 1**: Create Policy for Container Engine
 
 To create and manage clusters in your tenancy, Container Engine must have access to all resources in the tenancy. To give Container Engine the necessary access, create a policy for the service as follows:
 
@@ -169,7 +169,7 @@ There should be one default security list `Default Security List for oke-cluster
 
 ![](images/30.png)
 
-#### **STEP 2.5.1**: Create Security List for Work Node Subnets
+### **STEP 2.5.1**: Create Security List for Work Node Subnets
 
 - Click **Create Security Lists**
 
@@ -195,7 +195,7 @@ There should be one default security list `Default Security List for oke-cluster
 - Click on **Create Security List** button to complete
 
 
-#### **STEP 2.5.2**: Create Security List for Load Balancer Subnets
+### **STEP 2.5.2**: Create Security List for Load Balancer Subnets
 
 - Repeat Step 2.5.1 for the Load Balancer subnet using the rules below:
 
@@ -302,27 +302,27 @@ Use OpenSSL commands to generate the key pair in the required PEM format.
 
 - If you haven't already, create a .oci directory to store the credentials:
 
-`mkdir ~/.oci`
+```mkdir ~/.oci```
 
 - Generate the private key with one of the following commands:
 
-`openssl genrsa -out ~/.oci/oci_api_key.pem -aes128 2048`
+```openssl genrsa -out ~/.oci/oci_api_key.pem -aes128 2048```
 
 - Ensure that only you can read the private key file:
 
-`chmod go-rwx ~/.oci/oci_api_key.pem`
+```chmod go-rwx ~/.oci/oci_api_key.pem```
 
 - Generate the public key:
 
-`openssl rsa -pubout -in ~/.oci/oci_api_key.pem -out ~/.oci/oci_api_key_public.pem`
+```openssl rsa -pubout -in ~/.oci/oci_api_key.pem -out ~/.oci/oci_api_key_public.pem```
 
 - Copy the contents of the public key to the clipboard using pbcopy, xclip or a similar tool (you'll need to paste the value into the Console later). For example:
 
-`cat ~/.oci/oci_api_key_public.pem | pbcopy`
+```cat ~/.oci/oci_api_key_public.pem | pbcopy```
 
 - Get the key's fingerprint with the following OpenSSL command:
 
-`openssl rsa -pubout -outform DER -in ~/.oci/oci_api_key.pem | openssl md5 -c`
+```openssl rsa -pubout -outform DER -in ~/.oci/oci_api_key.pem | openssl md5 -c```
 
 When you upload the public key in the Console, the fingerprint is also automatically displayed there. It looks something like this: `12:34:56:78:90:ab:cd:ef:12:34:56:78:90:ab:cd:ef`
 
@@ -378,17 +378,17 @@ The command prompts you for the information required for the config file and the
 
 - Make the get-kubeconfig.sh file executable. For example on Linux or MacOS:
 
-`$ chmod +x ~/get-kubeconfig.sh`
+```$ chmod +x ~/get-kubeconfig.sh```
 
 - Set the **ENDPOINT** environment variable to point to the region in which you created the cluster. Use one of us-phoenix-1, us-ashburn-1, eu-frankfurt-1, or uk-london-1 to specify the region. For example, on Linux or MacOS:
 
 
-`$ export ENDPOINT=containerengine.us-phoenix-1.oraclecloud.com`
+```$ export ENDPOINT=containerengine.us-phoenix-1.oraclecloud.com```
 
 - Run the `get-kubeconfig.sh` file to download the `kubeconfig` file and save it in a location accessible to kubectl and the Kubernetes Dashboard. For example on Linux or MacOS:
 
 
-`$ ~/get-kubeconfig.sh ocid1.cluster.oc1.phx.aaaaaaaaae... > ~/kubeconfig`
+```$ ~/get-kubeconfig.sh ocid1.cluster.oc1.phx.aaaaaaaaae... > ~/kubeconfig```
 
 Where ocid1.cluster.oc1.phx.aaaaaaaaae... is the OCID of the current cluster.
 
@@ -399,12 +399,12 @@ Where ocid1.cluster.oc1.phx.aaaaaaaaae... is the OCID of the current cluster.
 
 - In a terminal window, set the **KUBECONFIG** environment variable to the name and location of the `kubeconfig` file. For example, on Linux or MacOS:
 
-`$ export KUBECONFIG=~/kubeconfig`
+```$ export KUBECONFIG=~/kubeconfig```
 
 
 - Verify that **kubectl** is available and that it can connect to the cluster
 
-`$ kubectl get nodes`
+```$ kubectl get nodes```
 
 Information about the nodes in the cluster is shown.
 
