@@ -429,5 +429,29 @@ To start the Kubernetes Dashboard:
 - Open a browser and go to http://localhost:8001/ui to display the Kubernetes Dashboard.
 
 
-The Kubernetes cluster setup is complete and you are now able to deploy your application to this cluster.
+## **STEP 5**:
+
+The Kubernetes cluster setup is complete and you are now able to deploy your application to this cluster. This cluster is can be reached by its cluster address. You can find this address either through the OCI console or in the `kubeconfig` file.
+
+- Open the `kubeconfig` file and look for the line with the **server** tag. For example:
+
+  `server: https://cygiyzvmi4w.us-ashburn-1.clusters.oci.oraclecloud.com:6443`
+  
+  This is the cluster address you should use for deployment, such as the one specified for `KUBERNETES_MASTER` in **Wercker Environment**.
+  
+Alternatively:
+
+- In the Console, open the navigation menu. Click **Containers**
+
+- Choose the **Demo** compartment, and then click **Clusters**
+
+- On the **Cluster** List page, click the **Demo** cluster you created.
+
+- Under the Cluster Details, you will find the Kubernetes Cluster address similar to below:
+
+  ![](images/52.png)
+
+  This should be the same address as the one found in `kubeconfig`.
+  
+  You are ready to config Wercker to deploy to this cluster.
 
