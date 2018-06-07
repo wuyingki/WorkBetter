@@ -281,7 +281,7 @@ We usually require five subnets in the VCN to create and deploy clusters in a hi
   - **Route Table:** `Default Route Table for oke-cluster`
   - **Public Subnet:** `Allow public IP addresses for instances in this Subnet`
   - **DNS Resolution:** `Use DNS Hostnames In This Subnet`
-  - **DNS Label:** `loadbalancer-1`
+  - **DNS Label:** `oke-load-1`
   - **DHCP Options:** `Default DHCP Options for oke-cluster`
   - **Security Lists:** `oke-loadbalancers`
 
@@ -293,7 +293,7 @@ We usually require five subnets in the VCN to create and deploy clusters in a hi
   - **Route Table:** `Default Route Table for oke-cluster`
   - **Public Subnet:** `Allow public IP addresses for instances in this Subnet`
   - **DNS Resolution:** `Use DNS Hostnames In This Subnet`
-  - **DNS Label:** `loadbalancer-2`
+  - **DNS Label:** `oke-load-2`
   - **DHCP Options:** `Default DHCP Options for oke-cluster`
   - **Security Lists:** `oke-loadbalancers`
   
