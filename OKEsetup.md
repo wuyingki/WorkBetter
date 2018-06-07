@@ -167,7 +167,7 @@ There are two types of rules, Ingress and Egress, for both Workers and Load Bala
 
 Let's create the security lists and rules.
 
-- Select **Security** from the list on the left
+- In the VCN `oke-cluster` details page, select **Security Lists** from the list on the left
 
   There should be one default security list `Default Security List for oke-cluster` similar to below.
 
@@ -186,7 +186,7 @@ Let's create the security lists and rules.
 
   ![](images/31.png)
 
-- Enter the rest of the Ingress rules following the table below:
+- Repeat the above for the rest of the Ingress rules following the table below from rule number 2 as the first rule has been entered already
 
   ![](images/32.png)
 
