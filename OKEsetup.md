@@ -86,7 +86,7 @@ Once the **oke-cluster** VCN is created
 
 - Click on the **oke-cluster** VCN to enter the details page
 
-- Select **Internet Gateways** from the list on the left
+- Select **Internet Gateways** from the list on the left and click on **Create Internet Gateway**
 
 - Enter the following:
   - **Name:** `oke-gateway-0`
