@@ -207,27 +207,31 @@ Let's create the security lists and rules.
 
   ![](images/34.png)
 
+- Click on **Create Security List** button to complete
+
+
   You should now have three security lists similar to below:
 
   ![](images/35.png)
+
 
 
 ### **STEP 2.6**: Subnet Configuration
 
 We usually require five subnets in the VCN to create and deploy clusters in a highly available configuration. The following configuration assumes you will be deploying across all three Availability Domains.
 
+- Three subnets in which to deploy worker nodes. Each worker node subnet must be in a different availability domain. The worker node subnets must have different security lists to the load balancer subnets.
 
-  - Three subnets in which to deploy worker nodes. Each worker node subnet must be in a different availability domain. The worker node subnets must have different security lists to the load balancer subnets.
-  
-  - Two subnets to host load balancers. Each load balancer subnet must be in a different availability domain. The load balancer subnets must have different security lists to the worker node subnets.
-  
+- Two subnets to host load balancers. Each load balancer subnet must be in a different availability domain. The load balancer subnets must have different security lists to the worker node subnets.
+
+
 - Still in the VCN page, select **Subnets** from the list on the left
 
 - Click **Create Subnet**
 
 - Enter the following for the first subnet:
   - **Name:** `oke-workers-1`
-  - **Availability Domain:** `emra:US-ASHBURN-AD-1`
+  - **Availability Domain:** `????:US-ASHBURN-AD-1`
   - **CIDR Block:** `10.0.10.0/24`
   - **Route Table:** `Default Route Table for oke-cluster`
   - **Public Subnet:** `Allow public IP addresses for instances in this Subnet`
@@ -243,13 +247,57 @@ We usually require five subnets in the VCN to create and deploy clusters in a hi
 
 - Repeat the above for the remaining two worker subnets **oke-workers-2** and **oke-workers-3** as below:
 
-  ![](images/37.png)
+  **oke-workers-2**
+  
+  - **Name:** `oke-workers-2`
+  - **Availability Domain:** `????:US-ASHBURN-AD-2`
+  - **CIDR Block:** `10.0.11.0/24`
+  - **Route Table:** `Default Route Table for oke-cluster`
+  - **Public Subnet:** `Allow public IP addresses for instances in this Subnet`
+  - **DNS Resolution:** `Use DNS Hostnames In This Subnet`
+  - **DHCP Options:** `Default DHCP Options for oke-cluster`
+  - **Security Lists:** `oke-workers`
+
+  **oke-workers-3**
+
+  - **Name:** `oke-workers-3`
+  - **Availability Domain:** `????:US-ASHBURN-AD-3`
+  - **CIDR Block:** `10.0.12.0/24`
+  - **Route Table:** `Default Route Table for oke-cluster`
+  - **Public Subnet:** `Allow public IP addresses for instances in this Subnet`
+  - **DNS Resolution:** `Use DNS Hostnames In This Subnet`
+  - **DHCP Options:** `Default DHCP Options for oke-cluster`
+  - **Security Lists:** `oke-workers`
 
 
 - Repeat the above for the two load balancer subnets **oke-loadbalancer-1** and **oke-loadbalancer-2** as below:
 
-  ![](images/38.png)
 
+  **oke-loadbalancers-1**
+  
+  - **Name:** `oke-loadbalancers-1`
+  - **Availability Domain:** `????:US-ASHBURN-AD-1`
+  - **CIDR Block:** `10.0.20.0/24`
+  - **Route Table:** `Default Route Table for oke-cluster`
+  - **Public Subnet:** `Allow public IP addresses for instances in this Subnet`
+  - **DNS Resolution:** `Use DNS Hostnames In This Subnet`
+  - **DNS Label:** `loadbalancer-1`
+  - **DHCP Options:** `Default DHCP Options for oke-cluster`
+  - **Security Lists:** `oke-loadbalancers`
+
+  **oke-loadbalancers-2**
+
+  - **Name:** `oke-loadbalancers-2`
+  - **Availability Domain:** `????:US-ASHBURN-AD-2`
+  - **CIDR Block:** `10.0.21.0/24`
+  - **Route Table:** `Default Route Table for oke-cluster`
+  - **Public Subnet:** `Allow public IP addresses for instances in this Subnet`
+  - **DNS Resolution:** `Use DNS Hostnames In This Subnet`
+  - **DNS Label:** `loadbalancer-2`
+  - **DHCP Options:** `Default DHCP Options for oke-cluster`
+  - **Security Lists:** `oke-loadbalancers`
+  
+  
 With the five subnets connected, we are ready to create a Kubernetes cluster.
 
 
