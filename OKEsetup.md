@@ -26,7 +26,7 @@ Before you can use Container Engine for Kubernetes to create a Kubernetes cluste
 The following steps illustrates how you can do the above.
 
 
-## **STEP 1**: Create Policy for Container Engine
+### **STEP 1**: Create Policy for Container Engine
 
 To create and manage clusters in your tenancy, Container Engine must have access to all resources in the tenancy. To give Container Engine the necessary access, create a policy for the service as follows:
 
@@ -39,7 +39,7 @@ To create and manage clusters in your tenancy, Container Engine must have access
 - Enter the following:
   - **Name:** `oke-service`
   - **Description:** `allow OKE to manage all-resources in tenancy`
-  - **Policy Versioning:** Select **Keep Policy Current**, select **Use Version Date** and enter that date in YYYY-MM-DD format.
+  - **Policy Versioning:** Select **Keep Policy Current**
   - **Statement:** The following policy statement:
   `allow service OKE to manage all-resources in tenancy`
 
@@ -49,7 +49,7 @@ To create and manage clusters in your tenancy, Container Engine must have access
 
   ![](images/21.png)
 
-## **STEP 2**: Configuring Network Resources
+### **STEP 2**: Configuring Network Resources
 
 You must create a VCN for your cluster and it must include the following:
 
@@ -248,7 +248,7 @@ With the five subnets connected, we are ready to create a Kubernetes cluster.
 
 
 
-## **STEP 3**: Create a Kubernetes Cluster
+### **STEP 3**: Create a Kubernetes Cluster
   
   
 - In the Console, click **Containers**, choose the **Demo** compartment, and then click **Clusters**
@@ -289,7 +289,7 @@ The Kubernetes cluster is now ready to use.
 
 
 
-## **STEP 4**: Downloading a kubeconfig File to Enable Cluster Access
+### **STEP 4**: Downloading a kubeconfig File to Enable Cluster Access
 
 When you create a cluster, Container Engine creates a Kubernetes configuration file for the cluster called `kubeconfig`. The `kubeconfig` file provides the necessary details to access the cluster using **kubectl** and the Kubernetes Dashboard.
 
@@ -409,7 +409,7 @@ Before using the CLI, you have to create a config file that contains the require
 You can now use kubectl and the Kubernetes Dashboard to perform operations on the cluster.
 
 
-## **STEP 4**: Starting The Kubernetes Dashboard
+### **STEP 5**: Starting The Kubernetes Dashboard
 
 Kubernetes Dashboard is a web-based user interface that you can use as an alternative to the Kubernetes kubectl command line tool to:
 
@@ -429,7 +429,7 @@ To start the Kubernetes Dashboard:
 - Open a browser and go to http://localhost:8001/ui to display the Kubernetes Dashboard.
 
 
-## **STEP 5**:
+## **STEP 6**: Deploying to a Cluster
 
 The Kubernetes cluster setup is complete and you are now able to deploy your application to this cluster. This cluster is can be reached by its cluster address. You can find this address either through the OCI console or in the `kubeconfig` file.
 
