@@ -179,10 +179,12 @@ Let's create the security lists and rules.
 
 - Enter the following for first Ingress rule for **oke-worker** security list name:
   - **Security List Name:** `oke-workers`
+  - **Stateless:** `Yes`
   - **Source CIDR:** `10.0.10.0/24`
-  - **IP Protocol:** `TCP`
-  - **Source Port Range:** `ALL`
-  - **Destination Port Range:** `ALL`
+  - **IP Protocol:** `ALL`
+
+
+- Click **Add Rule**
 
   ![](images/31.png)
 
