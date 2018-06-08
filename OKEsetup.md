@@ -349,7 +349,7 @@ When you create a cluster, Container Engine creates a Kubernetes configuration f
 
 You must download the `kubeconfig` file and set an environment variable to point to it. Having completed the steps, you can start using **kubectl** and the Kubernetes Dashboard to manage the cluster.
 
-**Note: For the current release of Oracle Container Engine, you must install the Oracle Cloud Infrastructure CLI tool in order to download the kubeconfig file. In future releases of the OKE, you will be able to download the kubeconfig file directly from within the OCI Console**
+**NOTE**: For the current release of Oracle Container Engine, you must install the Oracle Cloud Infrastructure CLI tool in order to download the kubeconfig file. In future releases of the OKE, you will be able to download the kubeconfig file directly from within the OCI Console.
 
 
 ### **STEP 4.1**: Generate an API Signing Key Pair
@@ -480,9 +480,12 @@ Before you can use the Kubernetes Dashboard, you need to specify the cluster on 
 
 To start the Kubernetes Dashboard:
 
-- In a terminal window where you have exported the `KUBECONFIG` environment variable, enter `kubectl proxy` to ebable the Kubernetes Dashboard access.
+- In a terminal window where you have exported the `KUBECONFIG` environment variable, enter `kubectl proxy` to proxy server to enable Kubernetes Dashboard access.
 
-- Open a browser and go to http://localhost:8001/ui to display the Kubernetes Dashboard.
+- With the proxy server running, open a browser and go to http://localhost:8001/ui to enter the Kubernetes Dashboard.
+
+  ![](images/200/64.png)
+  
 
 
 ## **STEP 6**: Deploying to a Cluster
@@ -510,4 +513,7 @@ Alternatively:
   This should be the same address as the one found in `kubeconfig`.
   
   You are ready to config Wercker to deploy to this cluster.
+
+
+- Great! We've got Kubernetes installed and accessible -- now we're ready to get our microservice deployed to the cluster.
 
