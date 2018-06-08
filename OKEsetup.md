@@ -77,20 +77,6 @@ Click on **Change tenant** button if you are not presented with **Cloud Tenant**
 
 
 
-
-
-
-
-
-
-- Enter your **Username** and **Password** in the input fields and click **Sign In**. These are supplied by your workshop instructor earlier. The default user will be **api.user**
-
-  ![](images/56.png)
-
-
-
-
-
 ### **STEP 2**: Create Policy for Container Engine
 
 To create and manage clusters in your tenancy, Container Engine must have access to all resources in the tenancy. To give Container Engine the necessary access, create a policy for the service as follows:
