@@ -73,8 +73,11 @@ Click on **Change tenant** button if you are not presented with **Cloud Tenant**
 
 - Now sign in again using the **api.user** user name for Oracle Cloud Infrastructure on the right side of the login page.
 
+- Click **Sign In**
+
   ![](images/59.png)
 
+- You now ready to create policies.
 
 
 ### **STEP 2**: Create Policy for Container Engine
