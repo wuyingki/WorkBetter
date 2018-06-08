@@ -77,7 +77,9 @@ Click on **Change tenant** button if you are not presented with **Cloud Tenant**
 
   ![](images/59.png)
 
-- You now ready to create policies.
+- Ensure you're signed in as **api.user** for the rest of the lab
+
+- You now ready to create policies
 
 
 ### **STEP 2**: Create Policy for Container Engine
