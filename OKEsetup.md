@@ -349,7 +349,7 @@ When you create a cluster, Container Engine creates a Kubernetes configuration f
 
 You must download the `kubeconfig` file and set an environment variable to point to it. Having completed the steps, you can start using **kubectl** and the Kubernetes Dashboard to manage the cluster.
 
-**NOTE**: For the current release of Oracle Container Engine, you must install the Oracle Cloud Infrastructure CLI tool in order to download the kubeconfig file. In future releases of the OKE, you will be able to download the kubeconfig file directly from within the OCI Console.
+**NOTE**: For the current release of Oracle Container Engine, you must install the Oracle Cloud Infrastructure CLI tool in order to download the `kubeconfig` file. In future releases of the OKE, you will be able to download the `kubeconfig` file directly from within the OCI Console.
 
 
 ### **STEP 4.1**: Generate an API Signing Key Pair
