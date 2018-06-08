@@ -484,7 +484,7 @@ To start the Kubernetes Dashboard:
 
 - With the proxy server running, open a browser and go to http://localhost:8001/ui to enter the Kubernetes Dashboard.
 
-  ![](images/200/64.png)
+  ![](images/53.png)
   
 
 
