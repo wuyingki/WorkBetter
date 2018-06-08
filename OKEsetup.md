@@ -38,9 +38,9 @@ The following steps illustrates how you can do the above.
     
    _This URL may be different to the one your are provided with. Use the provided URL if it is different to the above_
 
-Click on **Change tenant** button if you are not presented with **Cloud Tenant** input field.
+- Click on **Change tenant** button if you are not presented with **Cloud Tenant** input field.
 
-![](images/54.png)
+  ![](images/54.png)
 
 - Enter your **Cloud Tenant Name** in the input field and click the **Continue** button. This is supplied by your workshop instructor earlier.
 
