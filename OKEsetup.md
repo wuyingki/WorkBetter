@@ -26,7 +26,35 @@ Before you can use Container Engine for Kubernetes to create a Kubernetes cluste
 The following steps illustrates how you can do the above.
 
 
-### **STEP 1**: Create Policy for Container Engine
+### **STEP 1**: Log in to your OCI dashboard
+
+- Please refer to the Cloud Account that has been provided by your workshop instructor. _Please note your account details will be provided separately and are not available on these pages._
+
+- Once you receive the **Oracle Cloud Account**, make note of your **Username, Password, Cloud Tenant Name and Console URL**.
+
+- Open your browser (Firefox or Chrome) and go to your Console URL. As en example, the Console URL will look something like the following:
+
+   [https://console.us-ashburn-1.oraclecloud.com/#/a/](https://console.us-ashburn-1.oraclecloud.com/#/a/)
+    
+   _This URL may be different to the one your are provided with. Use the provided URL if it is different to the above_
+
+Click on **Change tenant** button if you are not presented with **Cloud Tenant** input field.
+
+![](images/54.png)
+
+- Enter your **Cloud Tenant Name** in the input field and click the **Continue** button. This is supplied by your workshop instructor earlier.
+
+  ![](images/55.png)
+
+- Enter your **Username** and **Password** in the input fields and click **Sign In**. These are supplied by your workshop instructor earlier. The default user will be **api.user**
+
+  ![](images/56.png)
+
+
+
+
+
+### **STEP 2**: Create Policy for Container Engine
 
 To create and manage clusters in your tenancy, Container Engine must have access to all resources in the tenancy. To give Container Engine the necessary access, create a policy for the service as follows:
 
@@ -49,7 +77,7 @@ To create and manage clusters in your tenancy, Container Engine must have access
 
   ![](images/21.png)
 
-### **STEP 2**: Configuring Network Resources
+### **STEP 3**: Configuring Network Resources
 
 You must create a VCN for your cluster and it must include the following:
 
@@ -58,7 +86,7 @@ You must create a VCN for your cluster and it must include the following:
   - The VCN must have a route table defined that has a route rule specifying the internet gateway as the target for the destination CIDR block
   - The VCN must have five subnets defined, three subnets in which to deploy worker nodes and two subnets to host load balancers.
 
-### **STEP 2.1**: VCN Configuration
+### **STEP 3.1**: VCN Configuration
 
 - In the Console, click **Networking**, and then click **Virtual Cloud Network**
 
@@ -78,7 +106,7 @@ You must create a VCN for your cluster and it must include the following:
   ![](images/22.png)
 
 
-### **STEP 2.2**: Internet Gateway Configuration
+### **STEP 3.2**: Internet Gateway Configuration
 
 The VCN must have an internet gateway. The internet gateway must be specified as the target for the destination CIDR block 0.0.0.0/0 in a route rule in a route table.
 
@@ -98,7 +126,7 @@ Once the **oke-cluster** VCN is created
   ![](images/23.png)
 
 
-### **STEP 2.3**: Route Table Configuration: 
+### **STEP 3.3**: Route Table Configuration: 
 
 The VCN must have a route table. The route table must have a route rule that specifies an internet gateway as the target for the destination CIDR block 0.0.0.0/0.
 
@@ -142,7 +170,7 @@ However, if a default Route Table has been created, then you only need to add a 
   - Click **Save**
   
 
-### **STEP 2.4**: DHCP Options Configuration
+### **STEP 3.4**: DHCP Options Configuration
 
 The VCN must have a DHCP Options configured. The default value for DNS Type of Internet and VCN Resolver is acceptable.
 
@@ -155,7 +183,7 @@ The VCN must have a DHCP Options configured. The default value for DNS Type of I
   ![](images/29.png)
 
 
-### **STEP 2.5**: Security List Configuration
+### **STEP 3.5**: Security List Configuration
 
 The VCN must have security lists defined for the Worker Node Subnets and the Load Balancer Subnets. Two security lists need to be created (in addition to the default security list) to control access to and from the worker node subnets and load balancer subnets. The two security lists are named **oke-workers** and **oke-loadbalancers** respectively.
 
@@ -173,7 +201,7 @@ Let's create the security lists and rules.
 
   ![](images/30.png)
 
-### **STEP 2.5.1**: Create Security List for Work Node Subnets
+### **STEP 3.5.1**: Create Security List for Work Node Subnets
 
 - Click **Create Security Lists**
 
@@ -201,9 +229,9 @@ Let's create the security lists and rules.
 - Click on **Create Security List** button to complete
 
 
-### **STEP 2.5.2**: Create Security List for Load Balancer Subnets
+### **STEP 3.5.2**: Create Security List for Load Balancer Subnets
 
-- Repeat Step 2.5.1 for the Load Balancer subnet with the Security List Name of **oke-loadbalancers** using the rules below:
+- Repeat Step 3.5.1 for the Load Balancer subnet with the Security List Name of **oke-loadbalancers** using the rules below:
 
   ![](images/34.png)
 
@@ -216,7 +244,7 @@ Let's create the security lists and rules.
 
 
 
-### **STEP 2.6**: Subnet Configuration
+### **STEP 3.6**: Subnet Configuration
 
 We usually require five subnets in the VCN to create and deploy clusters in a highly available configuration. The following configuration assumes you will be deploying across all three Availability Domains.
 
@@ -302,7 +330,7 @@ With the five subnets connected, we are ready to create a Kubernetes cluster.
 
 
 
-### **STEP 3**: Create a Kubernetes Cluster
+### **STEP 4**: Create a Kubernetes Cluster
   
   
 - In the Console, click **Containers**, choose the **Demo** compartment, and then click **Clusters**
@@ -343,7 +371,7 @@ The Kubernetes cluster will take a few minutes to create and will be ready for u
 
 
 
-### **STEP 4**: Downloading a kubeconfig File to Enable Cluster Access
+### **STEP 5**: Downloading a kubeconfig File to Enable Cluster Access
 
 When you create a cluster, Container Engine creates a Kubernetes configuration file for the cluster called `kubeconfig`. The `kubeconfig` file provides the necessary details to access the cluster using **kubectl** and the Kubernetes Dashboard.
 
@@ -352,7 +380,7 @@ You must download the `kubeconfig` file and set an environment variable to point
 **NOTE**: For the current release of Oracle Container Engine, you must install the Oracle Cloud Infrastructure CLI tool in order to download the `kubeconfig` file. In future releases of the OKE, you will be able to download the `kubeconfig` file directly from within the OCI Console.
 
 
-### **STEP 4.1**: Generate an API Signing Key Pair
+### **STEP 5.1**: Generate an API Signing Key Pair
 
 Use OpenSSL commands to generate the key pair in the required PEM format.
 
@@ -383,7 +411,7 @@ Use OpenSSL commands to generate the key pair in the required PEM format.
   When you upload the public key in the Console, the fingerprint is also automatically displayed there. It looks something like this: `12:34:56:78:90:ab:cd:ef:12:34:56:78:90:ab:cd:ef`
 
 
-### **STEP 4.2**: Upload the Public Key of the API Signing Key Pair
+### **STEP 5.2**: Upload the Public Key of the API Signing Key Pair
 
 You can now upload the PEM public key in the OCI Console.
 
@@ -398,14 +426,14 @@ You can now upload the PEM public key in the OCI Console.
   ![](images/41.png)
 
 
-### **STEP 4.3**: Installing the Oracle Cloud Infrastructure CLI
+### **STEP 5.3**: Installing the Oracle Cloud Infrastructure CLI
 
 The command line interface (CLI) is a tool that enables you to work with Oracle Cloud Infrastructure objects and services. The CLI provides much the same functionality as the Console and includes additional advanced commands.
 
 There are different installation options and steps to install the CLI and required software depending on your platform. It is not possbile to cover all the options on this page. Please refer to [Installing the CLI Link](https://docs.us-phoenix-1.oraclecloud.com/Content/API/SDKDocs/cliinstall.htm) to install your CLI.
 
 
-### **STEP 4.4**: Configuring the Oracle Cloud Infrastructure CLI
+### **STEP 5.4**: Configuring the Oracle Cloud Infrastructure CLI
 
 Before using the CLI, you have to create a config file that contains the required credentials for working with Oracle Cloud Infrastructure. You can create this file using a setup dialog or manually, using a text editor. It is recommended to use the setup dialog.
 
@@ -416,7 +444,7 @@ Before using the CLI, you have to create a config file that contains the require
 - When prompted for the API public/private keys, you can specify the keys you generated previously.
 
 
-### **STEP 4.5**: Download the kubeconfig.sh File
+### **STEP 5.5**: Download the kubeconfig.sh File
 
 - In the Console, open the navigation menu. Click **Containers**
 
@@ -450,7 +478,7 @@ Before using the CLI, you have to create a config file that contains the require
 - For convenience, the command in the How to **Access Kubeconfig** dialog box already includes the cluster's OCID. You can simply copy and paste that command.
 
 
-### **STEP 4.6**: Set the KUBECONFIG environment variable
+### **STEP 5.6**: Set the KUBECONFIG environment variable
 
 - In a terminal window, set the **KUBECONFIG** environment variable to the name and location of the `kubeconfig` file. For example, on Linux or MacOS:
 
@@ -465,7 +493,7 @@ Before using the CLI, you have to create a config file that contains the require
 You can now use `kubectl` and the Kubernetes Dashboard to perform operations on the cluster.
 
 
-### **STEP 5**: Starting The Kubernetes Dashboard
+### **STEP 6**: Starting The Kubernetes Dashboard
 
 Kubernetes Dashboard is a web-based user interface that you can use as an alternative to the Kubernetes kubectl command line tool to:
 
@@ -488,7 +516,7 @@ To start the Kubernetes Dashboard:
   
 
 
-## **STEP 6**: Deploying to a Cluster
+## **STEP 7 **: Deploying to a Cluster
 
 The Kubernetes cluster setup is complete and you are now able to deploy your application to this cluster. This cluster is can be reached by its cluster address. You can find this address either through the OCI console or in the `kubeconfig` file.
 
