@@ -339,7 +339,7 @@ You can either Click **Create** now and create your node pools later OR add the 
 
 - Click **Create**
 
-The Kubernetes cluster is now ready to use.
+The Kubernetes cluster will take a few minutes to create and will be ready for use after it finishes.
 
 
 
