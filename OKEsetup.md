@@ -47,7 +47,7 @@ Click on **Change tenant** button if you are not presented with **Cloud Tenant**
   ![](images/55.png)
   
   
-- If you are using an Oracle GSE account, you will be using the default **api.user** to do all provisioning work. This **api.user** does not have the administration rights to create the Kubernetes cluster in OCI. Therefore you must login using the Single Sign-On (SSO) identy first and assign **api.user** to the admin group.
+- If you are using an Oracle GSE account, you will be using the default **api.user** to do all provisioning work. This **api.user** does not have the administration rights to create the Kubernetes cluster in OCI. Therefore you must login using the Single Sign-On (SSO) identy first and assign **api.user** to the admin group and then login to **api.user** for the rest of the lab.
 
 - Click **Continue** under the SSO Identity Provider box
 
@@ -55,9 +55,28 @@ Click on **Change tenant** button if you are not presented with **Cloud Tenant**
 
   ![](images/56.png)
 
+- In the Console, open the navigation menu. Under **Identity**, click **Groups**. A list of groups is displayed.
+
+- Click on the **Administrators** group
+
+  ![](images/57.png)
+  
+- Click **Add User to Group**
+
+- Select **api.user** from the drop down list and click **Add**
+
+  The **api.user** is now added to the **Administrators** group and you should see something similar to below.
+  
+  ![](images/58.png)
+
+- You can now **Sign Out** of the OCI Console.
+
+- Now sign in again using the **api.user** user name for Oracle Cloud Infrastructure on the right side of the login page.
+
+  ![](images/59.png)
 
 
-- In the Console, open the navigation menu. Under Identity, click Policies. A list of the policies in the compartment you're viewing is displayed.
+
 
 
 
