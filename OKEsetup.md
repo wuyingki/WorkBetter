@@ -32,7 +32,7 @@ The following steps illustrates how you can do the above.
 
 - Once you receive the **Oracle Cloud Account**, make note of your **Username, Password, Cloud Tenant Name and Console URL**.
 
-- Open your browser (Firefox or Chrome) and go to your Console URL. As an example, the Console URL will look something like the following:
+- Open your browser (Firefox or Chrome) and go to your Console URL. The Console URL is:
 
    [https://console.us-ashburn-1.oraclecloud.com/#/a/](https://console.us-ashburn-1.oraclecloud.com/#/a/)
     
