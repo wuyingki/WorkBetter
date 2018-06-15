@@ -14,15 +14,14 @@ build:
     - internal/docker-push:
         username: $DOCKER_USER
         password: $DOCKER_PASSWORD
-        repository: workbetter
-        registry: https://index.docker.io/v2/
+        repository: wcr.io/kwanwan/mfrontpage
         tag: $WERCKER_GIT_COMMIT
         ports: 80
         cmd: "nginx -g 'daemon off';"
        
 functional-test:
   box: 
-    id: mfrontpage
+    id: wcr.io/kwanwan/mfrontpage
     username: $DOCKER_USER
     password: $DOCKER_PASSWORD
     tag: $WERCKER_GIT_COMMIT
