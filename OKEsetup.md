@@ -369,7 +369,7 @@ With the five subnets connected, we are ready to create a Kubernetes cluster.
   - **Name:** `Demo`
   - **Version:** `v1.9.7`
   - **VCN:** `oke-cluster`
-  - **Kubernetes Service LB Subnets:** `oke-workers-1`, `oke-workers-2`
+  - **Kubernetes Service LB Subnets:** `oke-loadbalancers-1`, `oke-loadbalancers-2`
   - **Kubernetes Dashboard Enabled:** `Checked`
   - **Tiller (Helm) Enabled:** `Checked`
 
@@ -386,14 +386,17 @@ You can either Click **Create** now and create your node pools later OR add the 
   - **Version:** `v1.9.7`
   - **Image:** `Oracle-Linux-7.4`
   - **Shape:** `VM.Standard2.1`
-  - **Subnets:** `oke-wokrers-3`
+  - **Subnets:** `oke-workers-1`, `oke-workers-2`, `oke-workers-3`
   - **Quantity Per Subnet:** `1`
+
+  This will create three worker nodes, one in each Availability Domain. If you do not require three worker nodes, then just specify the subsnet you one to be in. For example, if only one worker node in AD1, then specify the `oke-workers-1` in the Subnets field.
 
   Leave the rest of the fields to default and you should have something similar to below:
 
   ![](images/40.png)
 
 - Click **Create**
+
 
 The Kubernetes cluster will take a few minutes to create and will be ready for use after it finishes.
 
