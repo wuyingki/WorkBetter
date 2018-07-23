@@ -10,7 +10,7 @@ spec:
         app: workbetter
     spec:
       containers:
-      - name: frontpage
+      - name: workbetter
         image: $DOCKER_REGISTRY/$DOCKER_REPO:$WERCKER_GIT_COMMIT
         ports:
         - containerPort: 80
