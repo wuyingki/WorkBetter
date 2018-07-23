@@ -68,10 +68,10 @@ deploy:
         server: $KUBERNETES_MASTER
         token: $KUBERNETES_TOKEN
         insecure-skip-tls-verify: true
-        command: apply -f ./workbetter-deploy.yml --namespace=$NS
+        command: apply -f ./mfrontpage-deploy.yml --namespace=$NS
     - kubectl:
         name: apply service
         server: $KUBERNETES_MASTER
         token: $KUBERNETES_TOKEN
         insecure-skip-tls-verify: true
-        command: apply -f ./workbetter-service.yml --namespace=$NS
+        command: apply -f ./mfrontpage-service.yml --namespace=$NS
