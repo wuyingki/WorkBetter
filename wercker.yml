@@ -14,7 +14,7 @@ build:
     - internal/docker-push:
         username: $DOCKER_USER
         password: $DOCKER_PASSWORD
-        repository: kwan/workbetter
+        repository: gse00014208/workbetter
         registry: https://iad.ocir.io/v2/
         tag: $WERCKER_GIT_COMMIT
         ports: 80
