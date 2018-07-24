@@ -22,7 +22,7 @@ build:
        
 functional-test:
   box: 
-    id: iad.ocir.io/gse00014208/kwan/workbetter
+    id: $DOCKER_REGISTRY/$DOCKER_REPO
     username: $DOCKER_USER
     password: $DOCKER_PASSWORD
     tag: $WERCKER_GIT_COMMIT
