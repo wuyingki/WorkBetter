@@ -1,5 +1,13 @@
 # CI/CD Demo - Wercker Container Pipeline
 
+**NOTE:** There are two branches for this demo
+
+  - **master** branch uses Docker Hub for the registry
+  - **ocir** branch uses Oracle Compute Infrastructure Registry
+  
+  Please select branch accordingly as the *wercker.yml* file differs for different registries.
+  
+
 ## Demo Introduction
 
 This repository contains the code for the WorkBetter application demo. This demo will walk you through the process of developing an application in a containerised CI/CD pipeline and deploying it to a Kubernetes cluster running on Oracle Cloud Infrastructure.
