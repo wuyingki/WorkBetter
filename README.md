@@ -1,5 +1,9 @@
 # CI/CD Demo - Wercker Container Pipeline
 
+
+**NOTE:** DO NOT USE THIS BRANCH as this used the obsolete Wercker internal registry *wrc.io*
+
+
 ## Demo Introduction
 
 This repository contains the code for the WorkBetter application demo. This demo will walk you through the process of developing an application in a containerised CI/CD pipeline and deploying it to a Kubernetes cluster running on Oracle Cloud Infrastructure.
