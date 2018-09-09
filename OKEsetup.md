@@ -10,48 +10,50 @@ Before you can use Container Engine for Kubernetes to create a Kubernetes cluste
   - at least one compute instance (node) must be available in the tenancy or three compute instances (one in each availability domain) to create a highly available cluster
   - at least one load balancer to distribute traffic between the nodes running a service in a Kubernetes cluster
 
-- A suitably pre-configured compartment must already exist in each region in which you want to create and deploy clusters. If you are using a GSE environment, then you should use the **Demo** compartment and **api.user** as the local OCI login account.
+- A suitably pre-configured compartment must already exist in each region in which you want to create and deploy clusters. If you are using a GSE environment, then you should use the **Demo** compartment and **api.user** as the local OCI login account. Otherwise, use a local user account that's been created for you by your administrator.
   - The compartment must contain the necessary network resources already configured (VCN, subnets, internet gateway, route table, security lists) before you can create and deploy a cluster. For example, to create a highly available cluster spanning three availability domains, the VCN must include three subnets in different availability domains for node pools, and two further subnets for load balancers.
- 
+
 - Within the root compartment of your tenancy, a policy statement (allow service OKE to manage all-resources in tenancy) must be defined to give Container Engine for Kubernetes access to resources in the tenancy.
 
-- To create and/or manage clusters, you must belong to one of the following (**api.user** if using GSE environment):
+- To create and/or manage clusters, your user account must belong to one of the following:
   - The tenancy's Administrators group
   - A group to which a policy grants the appropriate Container Engine for Kubernetes permissions
-  
+
 - To perform operations on a cluster:
   - You must have installed and configured the Kubernetes command line tool `kubectl`
   - You must have downloaded the cluster's `kubeconfig` file
 
-The following steps illustrates how you can do the above.
+The following steps illustrates how you can provision and configure a Container Engine Cluster.
 
 
-### **STEP 1**: Log in to your OCI dashboard
+### **STEP 1**: Log in to your OCI Console
 
-- Please refer to the Cloud Account that has been provided by your workshop instructor. _Please note your account details will be provided separately and are not available on these pages._
+- Please refer to the Cloud Account that has been provided by your workshop instructor or your administrator. _Please note your account details will be provided separately and are not available on these pages._
 
 - Once you receive the **Oracle Cloud Account**, make note of your **Username, Password, Cloud Tenant Name and Console URL**.
 
-- Open your browser (Firefox or Chrome) and go to your Console URL. The Console URL is:
+- Open your browser (Safari, Firefox or Chrome) and go to your Oracle Cloud Infrastrcuture Console URL. The OCI Console URL is:
 
    [https://console.us-ashburn-1.oraclecloud.com/#/a/](https://console.us-ashburn-1.oraclecloud.com/#/a/)
-    
-   _This URL may be different to the one your are provided with. Use the provided URL if it is different to the above_
+
+   _This URL may be different to the one your are provided with. Use the provided URL if it is different to the above._
+
+   _You can also access the OCI Console URL from your Cloud Dashboard._
 
 - Click on **Change tenant** button if you are not presented with **Cloud Tenant** input field.
 
   ![](images/54.png)
 
-- Enter your **Cloud Tenant Name** in the input field and click the **Continue** button. This is supplied by your workshop instructor earlier.
+- Enter your **Cloud Tenant Name** in the input field and click the **Continue** button. This is supplied by your workshop instructor or administrator earlier.
 
   ![](images/55.png)
-  
-  
-- If you are using an Oracle GSE account, you will be using the default **api.user** to do all provisioning work. This **api.user** does not have the administration rights to create the Kubernetes cluster in OCI. Therefore you must login using the Single Sign-On (SSO) identy first and assign **api.user** to the admin group and then login to **api.user** for the rest of the lab.
+
+
+- If you are using an Oracle GSE account, you will be using the default **api.user** to do all provisioning work. Otherwise, you will use your own local user. By default, the local user such as **api.user** does not have the administration rights to create the Kubernetes cluster in OCI. Therefore you must login using the Single Sign-On (SSO) identity with administrative rights and assign the local user (**api.user**) to the admin group. Then log back into the local user account (**api.user**) for the rest of the lab.
 
 - Click **Continue** under the SSO Identity Provider box
 
-- Enter **cloud.admin** and its **password** in the input fields and click **Sign In**
+- Enter **cloud.admin**  or your Cloud username and its **password** in the input fields and click **Sign In**
 
   ![](images/56.png)
 
@@ -60,26 +62,26 @@ The following steps illustrates how you can do the above.
 - Click on the **Administrators** group
 
   ![](images/57.png)
-  
+
 - Click **Add User to Group**
 
-- Select **api.user** from the drop down list and click **Add**
+- Select **api.user** or your local username from the drop down list and click **Add**
 
   The **api.user** is now added to the **Administrators** group and you should see something similar to below.
-  
+
   ![](images/58.png)
 
 - You can now **Sign Out** of the OCI Console.
 
-- Now sign in again using the **api.user** user name for Oracle Cloud Infrastructure on the right side of the login page.
+- Now sign in again using the **api.user** or your local username for Oracle Cloud Infrastructure on the right side of the login page.
 
 - Click **Sign In**
 
   ![](images/59.png)
 
-- Ensure you're signed in as **api.user** for the rest of the lab
+- Ensure you're signed in as **api.user** or your local user for the rest of the lab
 
-- You now ready to create policies
+- You are now ready to create policies
 
 
 ### **STEP 2**: Create Policy for Container Engine
@@ -118,29 +120,30 @@ You must create a VCN for your cluster and it must include the following:
 
 - In the Console, click **Networking**, and then click **Virtual Cloud Network**
 
-- Select your the tenancy's **Demo** compartment (for GSE env) from the list on the left
+- Select your the tenancy's **Demo??** compartment from the compartment list on the left. Replace ?? with your assigned number (01 to 20).
 
 - Click **Create Virtual Cloud Network**
 
 - Enter the following:
-  - **Name:** `oke-cluster`
+  - **Name:** `oke-cluster??` (Where ?? is your assigned number)
   - **CIDR Block:** `10.0.0.0/16`
   - **DNS Resolution:** Check box to **USE DNS HOSTNAMES IN THIS VCN**
 
 - Leave the rest to default (Compartment defaults to **Demo** for GSE env)
 
+  ![](images/22.png)
+
 - Click **Create Virtual Cloud Network**
 
-  ![](images/22.png)
 
 
 ### **STEP 3.2**: Internet Gateway Configuration
 
 The VCN must have an internet gateway. The internet gateway must be specified as the target for the destination CIDR block 0.0.0.0/0 in a route rule in a route table.
 
-Once the **oke-cluster** VCN is created
+Once the **oke-cluster??** VCN is created
 
-- Click on the **oke-cluster** VCN to enter the details page
+- Click on the **oke-cluster??** VCN to enter the details page
 
 - Select **Internet Gateways** from the list on the left and click on **Create Internet Gateway**
 
@@ -154,7 +157,7 @@ Once the **oke-cluster** VCN is created
   ![](images/23.png)
 
 
-### **STEP 3.3**: Route Table Configuration: 
+### **STEP 3.3**: Route Table Configuration:
 
 The VCN must have a route table. The route table must have a route rule that specifies an internet gateway as the target for the destination CIDR block 0.0.0.0/0.
 
@@ -176,7 +179,7 @@ If a default Route Table has not been created for you, then create a new Route T
   - **Target Type:** `Internet Gateway`
   - **Target Internet Gateway:** `oke-gateway-0`
 
-- Leave the rest to default (Compartment defaults to **Demo** for GSE env)
+- Leave the rest to default (Compartment defaults to **Demo?/** compartment)
 
 - Click **Create Route Table**
 
@@ -189,24 +192,25 @@ However, if a default Route Table has been created, then you only need to add a 
 - Click on **Edit Route Rules**
 
 - Enter the following:
-  - **Destination CIDR block:** `0.0.0.0/0`
   - **Target Type:** `Internet Gateway`
+  - **Destination CIDR block:** `0.0.0.0/0`
+  - **Compartment:** `Demo??`
   - **Target Internet Gateway:** `oke-gateway-0`
 
   ![](images/25.png)
 
   - Click **Save**
-  
+
 
 ### **STEP 3.4**: DHCP Options Configuration
 
 The VCN must have a DHCP Options configured. The default value for DNS Type of Internet and VCN Resolver is acceptable.
 
-- In the VCN `oke-cluster` details page, select **DHCP Options** from the list on the left
+- In the VCN `oke-cluster??` details page, select **DHCP Options** from the list on the left
 
-  A `Default DHCP Options for oke-cluster` should have been created for you
-  
-- Click on **Default DHCP Options for oke-cluster** DHCP option to see the detail and you should see something similar to below.
+  A `Default DHCP Options for oke-cluster??` should have been created for you
+
+- Click on **Default DHCP Options for oke-cluster??** DHCP option to see the detail and you should see something similar to below.
 
   ![](images/29.png)
 
@@ -218,7 +222,7 @@ The VCN must have security lists defined for the Worker Node Subnets and the Loa
 Create two additional security lists to the default `Default Security List for oke-cluster`
   - **Security List Name:** `oke-workers`
   - **Security List Name:** `oke-loadbalancers`
-  
+
 There are two types of rules, Ingress and Egress, for both Workers and Load Balancer security lists. There 12 rules in total for the Worker Node Subnet and two rules in total for the Load Balancer Subnet.
 
 Let's create the security lists and rules.
@@ -289,7 +293,7 @@ We usually require five subnets in the VCN to create and deploy clusters in a hi
   - **Name:** `oke-workers-1`
   - **Availability Domain:** `????:US-ASHBURN-AD-1`
   - **CIDR Block:** `10.0.10.0/24`
-  - **Route Table:** `Default Route Table for oke-cluster`
+  - **Route Table:** `Default Route Table for oke-cluster??`
   - **Public Subnet:** `Allow public IP addresses for instances in this Subnet`
   - **DNS Resolution:** `Use DNS Hostnames In This Subnet`
   - **DHCP Options:** `Default DHCP Options for oke-cluster`
@@ -304,11 +308,11 @@ We usually require five subnets in the VCN to create and deploy clusters in a hi
 - Repeat the above for the remaining two worker subnets **oke-workers-2** and **oke-workers-3** as below:
 
   **oke-workers-2**
-  
+
   - **Name:** `oke-workers-2`
   - **Availability Domain:** `????:US-ASHBURN-AD-2`
   - **CIDR Block:** `10.0.11.0/24`
-  - **Route Table:** `Default Route Table for oke-cluster`
+  - **Route Table:** `Default Route Table for oke-cluster??`
   - **Public Subnet:** `Allow public IP addresses for instances in this Subnet`
   - **DNS Resolution:** `Use DNS Hostnames In This Subnet`
   - **DHCP Options:** `Default DHCP Options for oke-cluster`
@@ -319,57 +323,56 @@ We usually require five subnets in the VCN to create and deploy clusters in a hi
   - **Name:** `oke-workers-3`
   - **Availability Domain:** `????:US-ASHBURN-AD-3`
   - **CIDR Block:** `10.0.12.0/24`
-  - **Route Table:** `Default Route Table for oke-cluster`
+  - **Route Table:** `Default Route Table for oke-cluster??`
   - **Public Subnet:** `Allow public IP addresses for instances in this Subnet`
   - **DNS Resolution:** `Use DNS Hostnames In This Subnet`
   - **DHCP Options:** `Default DHCP Options for oke-cluster`
   - **Security Lists:** `oke-workers`
 
 
-- Repeat the above for the two load balancer subnets **oke-loadbalancer-1** and **oke-loadbalancer-2** as below:
+- Repeat the above for the two load balancer subnets **oke-LB-1** and **oke-LB-2** as below:
 
+  **oke-LB-1**
 
-  **oke-loadbalancers-1**
-  
-  - **Name:** `oke-loadbalancers-1`
+  - **Name:** `oke-LB-1`
   - **Availability Domain:** `????:US-ASHBURN-AD-1`
   - **CIDR Block:** `10.0.20.0/24`
-  - **Route Table:** `Default Route Table for oke-cluster`
+  - **Route Table:** `Default Route Table for oke-cluster??`
   - **Public Subnet:** `Allow public IP addresses for instances in this Subnet`
   - **DNS Resolution:** `Use DNS Hostnames In This Subnet`
   - **DNS Label:** `loadbalancer1`
   - **DHCP Options:** `Default DHCP Options for oke-cluster`
   - **Security Lists:** `oke-loadbalancers`
 
-  **oke-loadbalancers-2**
+  **oke-LB-2**
 
-  - **Name:** `oke-loadbalancers-2`
+  - **Name:** `oke-LB-2`
   - **Availability Domain:** `????:US-ASHBURN-AD-2`
   - **CIDR Block:** `10.0.21.0/24`
-  - **Route Table:** `Default Route Table for oke-cluster`
+  - **Route Table:** `Default Route Table for oke-cluster??`
   - **Public Subnet:** `Allow public IP addresses for instances in this Subnet`
   - **DNS Resolution:** `Use DNS Hostnames In This Subnet`
   - **DNS Label:** `loadbalancer2`
   - **DHCP Options:** `Default DHCP Options for oke-cluster`
   - **Security Lists:** `oke-loadbalancers`
-  
-  
+
+
 With the five subnets connected, we are ready to create a Kubernetes cluster.
 
 
 
 ### **STEP 4**: Create a Kubernetes Cluster
-  
-  
-- In the Console, click **Containers**, choose the **Demo** compartment, and then click **Clusters**
+
+
+- In the Console, click **Developer Services -> Containers Cluster (OKE)**, choose the **Demo??** compartment, and then click **Clusters**
 
 - Click **Create Cluster**
 
 - Enter the following configuration details for the new cluster:
   - **Name:** `Demo`
-  - **Version:** `v1.9.7`
+  - **Version:** `v1.9.7` or the latest release
   - **VCN:** `oke-cluster`
-  - **Kubernetes Service LB Subnets:** `oke-loadbalancers-1`, `oke-loadbalancers-2`
+  - **Kubernetes Service LB Subnets:** `oke-LB-1`, `oke-LB-2`
   - **Kubernetes Dashboard Enabled:** `Checked`
   - **Tiller (Helm) Enabled:** `Checked`
 
@@ -544,7 +547,7 @@ To start the Kubernetes Dashboard:
 - With the proxy server running, open a browser and go to http://localhost:8001/ui to enter the Kubernetes Dashboard.
 
   ![](images/53.png)
-  
+
 
 
 ## **STEP 7 **: Deploying to a Cluster
@@ -554,9 +557,9 @@ The Kubernetes cluster setup is complete and you are now able to deploy your app
 - Open the `kubeconfig` file and look for the line with the **server** tag. For example:
 
   `server: https://cygiyzvmi4w.us-ashburn-1.clusters.oci.oraclecloud.com:6443`
-  
+
   This is the cluster address you should use for deployment, such as the one specified for `KUBERNETES_MASTER` in **Wercker Environment**.
-  
+
 Alternatively:
 
 - In the Console, open the navigation menu. Click **Containers**
@@ -570,9 +573,8 @@ Alternatively:
   ![](images/52.png)
 
   This should be the same address as the one found in `kubeconfig`.
-  
+
   You are ready to config Wercker to deploy to this cluster.
 
 
 - Great! We've got Kubernetes installed and accessible -- now we're ready to get our microservice deployed to the cluster.
-
