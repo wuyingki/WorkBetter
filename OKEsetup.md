@@ -120,12 +120,12 @@ You must create a VCN for your cluster and it must include the following:
 
 - In the Console, click **Networking**, and then click **Virtual Cloud Network**
 
-- Select your the tenancy's **Demo??** compartment from the compartment list on the left. Replace ?? with your assigned number (01 to 20).
+- Select your the tenancy's **Demo** compartment from the compartment list on the left.
 
 - Click **Create Virtual Cloud Network**
 
 - Enter the following:
-  - **Name:** `oke-cluster??` (Where ?? is your assigned number)
+  - **Name:** `oke-cluster`
   - **CIDR Block:** `10.0.0.0/16`
   - **DNS Resolution:** Check box to **USE DNS HOSTNAMES IN THIS VCN**
 
@@ -141,16 +141,16 @@ You must create a VCN for your cluster and it must include the following:
 
 The VCN must have an internet gateway. The internet gateway must be specified as the target for the destination CIDR block 0.0.0.0/0 in a route rule in a route table.
 
-Once the **oke-cluster??** VCN is created
+Once the **oke-cluster** VCN is created
 
-- Click on the **oke-cluster??** VCN to enter the details page
+- Click on the **oke-cluster** VCN to enter the details page
 
 - Select **Internet Gateways** from the list on the left and click on **Create Internet Gateway**
 
 - Enter the following:
   - **Name:** `oke-gateway-0`
 
-- Leave the rest to default (Compartment defaults to **Demo??**)
+- Leave the rest to default (Compartment defaults to **Demo**)
 
 - Click **Create Internet Gateway**
 
@@ -179,7 +179,7 @@ If a default Route Table has not been created for you, then create a new Route T
   - **Target Type:** `Internet Gateway`
   - **Target Internet Gateway:** `oke-gateway-0`
 
-- Leave the rest to default (Compartment defaults to **Demo?/** compartment)
+- Leave the rest to default (Compartment defaults to **Demo** compartment)
 
 - Click **Create Route Table**
 
@@ -187,14 +187,14 @@ If a default Route Table has not been created for you, then create a new Route T
 
 However, if a default Route Table has been created, then you only need to add a new rule to the Route Table.
 
-- Click on the **Default Route Table for oke-cluster??** (default generated name) Route Table to enter the details page
+- Click on the **Default Route Table for oke-cluster** (default generated name) Route Table to enter the details page
 
 - Click on **Edit Route Rules**
 
 - Enter the following:
   - **Target Type:** `Internet Gateway`
   - **Destination CIDR block:** `0.0.0.0/0`
-  - **Compartment:** `Demo??`
+  - **Compartment:** `Demo`
   - **Target Internet Gateway:** `oke-gateway-0`
 
   ![](images/25.png)
@@ -206,11 +206,11 @@ However, if a default Route Table has been created, then you only need to add a 
 
 The VCN must have a DHCP Options configured. The default value for DNS Type of Internet and VCN Resolver is acceptable.
 
-- In the VCN `oke-cluster??` details page, select **DHCP Options** from the list on the left
+- In the VCN `oke-cluster` details page, select **DHCP Options** from the list on the left
 
-  A `Default DHCP Options for oke-cluster??` should have been created for you
+  A `Default DHCP Options for oke-cluster` should have been created for you
 
-- Click on **Default DHCP Options for oke-cluster??** DHCP option to see the detail and you should see something similar to below.
+- Click on **Default DHCP Options for oke-cluster** DHCP option to see the detail and you should see something similar to below.
 
   ![](images/29.png)
 
@@ -293,7 +293,7 @@ We usually require five subnets in the VCN to create and deploy clusters in a hi
   - **Name:** `oke-workers-1`
   - **Availability Domain:** `????:US-ASHBURN-AD-1`
   - **CIDR Block:** `10.0.10.0/24`
-  - **Route Table:** `Default Route Table for oke-cluster??`
+  - **Route Table:** `Default Route Table for oke-cluster`
   - **Public Subnet:** `Allow public IP addresses for instances in this Subnet`
   - **DNS Resolution:** `Use DNS Hostnames In This Subnet`
   - **DHCP Options:** `Default DHCP Options for oke-cluster`
@@ -312,7 +312,7 @@ We usually require five subnets in the VCN to create and deploy clusters in a hi
   - **Name:** `oke-workers-2`
   - **Availability Domain:** `????:US-ASHBURN-AD-2`·
   - **CIDR Block:** `10.0.11.0/24`
-  - **Route Table:** `Default Route Table for oke-cluster??`
+  - **Route Table:** `Default Route Table for oke-cluster`
   - **Public Subnet:** `Allow public IP addresses for instances in this Subnet`
   - **DNS Resolution:** `Use DNS Hostnames In This Subnet`
   - **DHCP Options:** `Default DHCP Options for oke-cluster`
@@ -323,7 +323,7 @@ We usually require five subnets in the VCN to create and deploy clusters in a hi
   - **Name:** `oke-workers-3`
   - **Availability Domain:** `????:US-ASHBURN-AD-3`
   - **CIDR Block:** `10.0.12.0/24`
-  - **Route Table:** `Default Route Table for oke-cluster??`
+  - **Route Table:** `Default Route Table for oke-cluster`
   - **Public Subnet:** `Allow public IP addresses for instances in this Subnet`
   - **DNS Resolution:** `Use DNS Hostnames In This Subnet`
   - **DHCP Options:** `Default DHCP Options for oke-cluster`
@@ -337,7 +337,7 @@ We usually require five subnets in the VCN to create and deploy clusters in a hi
   - **Name:** `oke-LB-1`
   - **Availability Domain:** `????:US-ASHBURN-AD-1`
   - **CIDR Block:** `10.0.20.0/24`
-  - **Route Table:** `Default Route Table for oke-cluster??`
+  - **Route Table:** `Default Route Table for oke-cluster`
   - **Public Subnet:** `Allow public IP addresses for instances in this Subnet`
   - **DNS Resolution:** `Use DNS Hostnames In This Subnet`
   - **DNS Label:** `loadbalancer1`
@@ -349,7 +349,7 @@ We usually require five subnets in the VCN to create and deploy clusters in a hi
   - **Name:** `oke-LB-2`
   - **Availability Domain:** `????:US-ASHBURN-AD-2`
   - **CIDR Block:** `10.0.21.0/24`
-  - **Route Table:** `Default Route Table for oke-cluster??`
+  - **Route Table:** `Default Route Table for oke-cluster`
   - **Public Subnet:** `Allow public IP addresses for instances in this Subnet`
   - **DNS Resolution:** `Use DNS Hostnames In This Subnet`
   - **DNS Label:** `loadbalancer2`
@@ -364,7 +364,7 @@ With the five subnets connected, we are ready to create a Kubernetes cluster.
 ### **STEP 4**: Create a Kubernetes Cluster
 
 
-- In the Console, click **Developer Services -> Containers Cluster (OKE)**, choose the **Demo??** compartment, and then click **Clusters**
+- In the Console, click **Developer Services -> Containers Cluster (OKE)**, choose the **Demo** compartment, and then click **Clusters**
 
 - Click **Create Cluster**
 
