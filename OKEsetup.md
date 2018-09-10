@@ -49,7 +49,7 @@ The following steps illustrates how you can provision and configure a Container 
   ![](images/55.png)
 
 
-- If you are using an Oracle GSE account, you will be using the default **api.user** to do all provisioning work. Otherwise, you will use your own local user. By default, the local user such as **api.user** does not have the administration rights to create the Kubernetes cluster in OCI. Therefore you must login using the Single Sign-On (SSO) identity with administrative rights and assign the local user (**api.user**) to the admin group. Then log back into the local user account (**api.user**) for the rest of the lab.
+- If you are using an Oracle GSE account, you will be using the default **api.user** to do all provisioning work. Otherwise, you will use your own local user login provided by your Cloud administrator. By default, the local user such as **api.user** does not have the administration rights to create the Kubernetes cluster in OCI. Therefore you must login using the Single Sign-On (SSO) identity with administrative rights and assign the local user (**api.user**) to the admin group. Then log back into the local user account (**api.user**) for the rest of the lab.
 
 - Click **Continue** under the SSO Identity Provider box
 
@@ -150,7 +150,7 @@ Once the **oke-cluster??** VCN is created
 - Enter the following:
   - **Name:** `oke-gateway-0`
 
-- Leave the rest to default (Compartment defaults to **Demo** for GSE env)
+- Leave the rest to default (Compartment defaults to **Demo??**)
 
 - Click **Create Internet Gateway**
 
@@ -187,7 +187,7 @@ If a default Route Table has not been created for you, then create a new Route T
 
 However, if a default Route Table has been created, then you only need to add a new rule to the Route Table.
 
-- Click on the **Default Route Table for oke-cluster** (default generated name) Route Table to enter the details page
+- Click on the **Default Route Table for oke-cluster??** (default generated name) Route Table to enter the details page
 
 - Click on **Edit Route Rules**
 
@@ -310,7 +310,7 @@ We usually require five subnets in the VCN to create and deploy clusters in a hi
   **oke-workers-2**
 
   - **Name:** `oke-workers-2`
-  - **Availability Domain:** `????:US-ASHBURN-AD-2`
+  - **Availability Domain:** `????:US-ASHBURN-AD-2`·
   - **CIDR Block:** `10.0.11.0/24`
   - **Route Table:** `Default Route Table for oke-cluster??`
   - **Public Subnet:** `Allow public IP addresses for instances in this Subnet`
