@@ -233,7 +233,7 @@ Let's create the security lists and rules.
 
   ![](images/30.png)
 
-### **STEP 3.5.1**: Create Security List for Work Node Subnets
+### **STEP 3.5.1**: Create Security List for Worker Node Subnets
 
 - Click **Create Security Lists**
 
@@ -248,31 +248,36 @@ Let's create the security lists and rules.
 
   ![](images/31.png)
 
-- Repeat the above for the rest of the Ingress rules following the table below from rule number 2 as the first rule has been entered already
+- Repeat the above step for the remaining Ingress rules in the table below. We have just completed rule number 1, please continue from rule number 2.
 
   ![](images/32.png)
 
-- Before clicking on **Create Security List** button to complete, you need to enter the Ergress rules as well.
+- Before clicking on **Create Security List** button to complete, you need to enter the Ergress rules as well. There are 4 Egress rules in total.
 
-- Enter the rest of the Engress rules following the table below:
+- Enter the Engress rules following the table below:
 
   ![](images/33.png)
 
 - Click on **Create Security List** button to complete
 
+**NOTE**: You have completed the **oke-worker** security list for the Worker Node Subnet.
+
 
 ### **STEP 3.5.2**: Create Security List for Load Balancer Subnets
 
-- Repeat Step 3.5.1 for the Load Balancer subnet with the Security List Name of **oke-loadbalancers** using the rules below:
+- Repeat Step 3.5.1 for the Load Balancer subnet with the Security List Name of **oke-loadbalancers** following the rules below:
 
   ![](images/34.png)
 
+
 - Click on **Create Security List** button to complete
 
+**NOTE**: You have completed the rules for the **oke-loadbalancers** security list.
 
   You should now have three security lists similar to below:
 
   ![](images/35.png)
+
 
 
 
@@ -340,7 +345,6 @@ We usually require five subnets in the VCN to create and deploy clusters in a hi
   - **Route Table:** `Default Route Table for oke-cluster`
   - **Public Subnet:** `Allow public IP addresses for instances in this Subnet`
   - **DNS Resolution:** `Use DNS Hostnames In This Subnet`
-  - **DNS Label:** `loadbalancer1`
   - **DHCP Options:** `Default DHCP Options for oke-cluster`
   - **Security Lists:** `oke-loadbalancers`
 
@@ -352,12 +356,11 @@ We usually require five subnets in the VCN to create and deploy clusters in a hi
   - **Route Table:** `Default Route Table for oke-cluster`
   - **Public Subnet:** `Allow public IP addresses for instances in this Subnet`
   - **DNS Resolution:** `Use DNS Hostnames In This Subnet`
-  - **DNS Label:** `loadbalancer2`
   - **DHCP Options:** `Default DHCP Options for oke-cluster`
   - **Security Lists:** `oke-loadbalancers`
 
 
-With the five subnets connected, we are ready to create a Kubernetes cluster.
+**NOTE**: You have completed the five subnets. We are ready to create a Kubernetes cluster.
 
 
 
