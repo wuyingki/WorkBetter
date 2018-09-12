@@ -389,7 +389,7 @@ You can either Click **Create** now and create your node pools later OR add the 
 
 - Enter the following configuration details for the new node pool:
   - **Name:** `demo`
-  - **Version:** `v1.9.7`
+  - **Version:** `v1.9.7` or the latest release
   - **Image:** `Oracle-Linux-7.4`
   - **Shape:** `VM.Standard2.1`
   - **Subnets:** `oke-workers-1`, `oke-workers-2`, `oke-workers-3`
@@ -531,7 +531,7 @@ Before using the CLI, you have to create a config file that contains the require
   `oci ce cluster create-kubeconfig --cluster-id ocid1.cluster.oc1.iad.aaaaaaaaaeydeyrthaytonjwmfstcmbwhbsdcnbqmzrgimztgcsdqztdhbrd --file $HOME/.kube/config`
 
 
-- For convenience, the command in the How to **Access Kubeconfig** dialog box already includes the cluster's OCID. You can simply copy and paste that command.
+- For convenience, the command in the How to **Access Kubeconfig** dialog box already includes the cluster's OCID. You can simply copy and paste that command intoo your terminal or shell.
 
 
 ### **STEP 5.6**: Set the KUBECONFIG environment variable
@@ -560,13 +560,19 @@ You use the Kubernetes Dashboard to get an overview of applications running on a
 
 In contrast to the Kubernetes Dashboard, Container Engine enables you to create and delete Kubernetes clusters and node pools, and to manage the associated compute, network, and storage resources.
 
-Before you can use the Kubernetes Dashboard, you need to specify the cluster on which to perform operations.
+Before you can use the Kubernetes Dashboard, you need to start a Kubernetes proxy locally to connect you to the Kubernetes master.
+
+- You can find the command to start the proxy and the URL to the Kubernetes Dashboard under the **Getting Started** option on the left of your cluster page.
+
+  ![](images/60.png)
 
 To start the Kubernetes Dashboard:
 
-- In a terminal window where you have exported the `KUBECONFIG` environment variable, enter `kubectl proxy` to proxy server to enable Kubernetes Dashboard access.
+- In a terminal window where you have exported the `KUBECONFIG` environment variable, enter
+  `kubectl proxy` to start the proxy server to enable Kubernetes Dashboard access.
 
-- With the proxy server running, open a browser and go to http://localhost:8001/ui to enter the Kubernetes Dashboard.
+- With the proxy server running, open a browser and go to:
+  http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy to enter the Kubernetes Dashboard.
 
   ![](images/53.png)
 
